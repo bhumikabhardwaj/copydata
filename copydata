@@ -1,15 +1,32 @@
-<div class="col-sm-4 pt-3" id="divsign" style="display: block;"> 
-                      <div class="form-group">
-                          <h6> signature (only png, jpg) (file should be less than 5 MB)</h6>
-                          <div class="file-upload">
-                              <button class="btn-upload">
-                                  <span class="text-browse">Browse...</span>
-                                  <span class="text-file-name" id="sign_file">No file Selected</span>
-                              </button>
-                              <input type="file" class="form-control d-none" id="signupsignature" accept="image/jpeg,image/jpg,image/png,application/pdf">
-                          </div>
-                      </div>
-                      <div style=" text-align: center;  ">
-                      <button class="btn btn-success col-md-6 pl-3 pr-3" id="upload_signature" onclick="uploadSignature()">Upload</button>
-                  </div>
-                </div>
+function uploadSignature() {
+  if ($("#signupsignature").val() == "") {
+    alert("Please Select File ");
+  } else {
+    $(".se-pre-con").show();
+    var formData = new FormData();
+    formData.append("signature", $("#signupsignature")[0].files[0]);
+    console.log(formData);
+    $.ajax({
+      crossOrigin: true,
+      type: "POST",
+      contentType: false,
+      processData: false,
+      url: "/UploadFilesByAdmin/" +
+        sessionStorage.getItem("mobileforkycadmin"),
+      data: formData,
+      success: function (data) {
+        $(".se-pre-con").hide();
+        console.log(data);
+        location.reload();
+      },
+      error: function (data) {
+        $(".se-pre-con").hide();
+        $("#notification").css("display", "block");
+        setInterval(function () {
+          $("#notification").css("display", "none");
+        }, 5000);
+      },
+      dataType: "json",
+    });
+  }
+}
