@@ -26,3 +26,44 @@ $(".file-upload").each(function () {
     bT.text("Change...");
   });
 });
+
+
+function signupsignature(e) {
+  if (e.files && e.files[0]) {
+    var reader = new FileReader();
+    reader.readAsDataURL(e.files[0]);
+
+    const name = $("#signupsignature")[0].files[0].name;
+    const lastDot = name.lastIndexOf(".");
+
+    const fileName = name.substring(0, lastDot);
+    const ext = name.substring(lastDot + 1).toLowerCase();
+    if (ext == "png" ||
+      ext == "PNG" ||
+      ext == "jpg" ||
+      ext == "JPG" ||
+      ext == "jpeg" ||
+      ext == "JPEG") {
+      if ($("#signupsignature")[0].files[0].size > 51200) {
+        alert("Try to upload file less than 50KB!");
+        $("#signupsignature").val("");
+        $('#sign_prev').attr('src', '');
+        $('#div_signpreview').hide();
+      } else {
+        reader.onload = function (e) {
+          $('#sign_prev').attr('src', e.target.result);
+          $('#div_signpreview').show();
+        };
+      }
+    } else {
+      alert("Please upload only png and jpg file");
+      $("#signupsignature").val("");
+      $('#sign_prev').attr('src', '');
+      $('#div_signpreview').hide();
+    }
+  } else {
+    $("#signupsignature").val("");
+    $('#sign_prev').attr('src', '');
+    $('#div_signpreview').hide();
+  }
+}
