@@ -1,3 +1,7 @@
+<li class="nav-item" id="nominee_menu">
+<a class="nav-link pl-0">Nominee</a>
+</li>
+
 <div id="nominee_div" class="w-auto mb-2" style="display: none">
 							<div class="container">
 								<div class="form-row">
