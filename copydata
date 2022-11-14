@@ -1,721 +1,259 @@
-<div class="col-sm-12 col-md-12 mt-3 nominee_option">
-									<p class="m-0 p-0">Do you want to add nominee</p>
-								</div>
-								<div class="col-sm-12 col-md-12 mt-3 nominee_option">
-									<div class="row">
-										<div class="col-sm-4 col-md-4">
-											<label
-												for="check_nomiee1"
-												class="check_container segment_check"
-												name="check_nomiee1"
-												id=""
-												>Yes
-												<input
-													type="checkbox"
-													id="check_nomiee1"
-													value="yes"
-													onclick="check_nomiee(this.id)"
-												/>
-												<span class="checkmark"></span>
-											</label>
-										</div>
-										<div class="col-sm-4 col-md-4">
-											<label
-												for="check_nomiee2"
-												class="check_container segment_check"
-												name="check_nomiee2"
-												id=""
-												>No
-												<input
-													type="checkbox"
-													id="check_nomiee2"
-													value="no"
-													onclick="check_nomiee(this.id)"
-												/>
-												<span class="checkmark"></span>
-											</label>
-										</div>
-									</div>
-								</div>
-								
-								
-								
-<div id="minor_detail1" class="showData" align="center">
-			<div
-				id="edit"
-				class="animate effect8 edit_div"
-				style="width: fit-content"
-			>
-				<h5 class="text-center"><u>Only if Nominee(s) is a minor</u></h5>
-				<div class="form-row">
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Date of birth of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="date"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee1_guar_dob"
-							class="form-control"
-							onchange="get_guar1_age()"
-							autocomplete="off"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Name of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee1_guar_name"
-							class="form-control"
-							onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Address of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee1_guar_adress"
-							class="form-control"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4">City<span class="astric">*</span></label>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee1_guar_city"
-							class="form-control"
-							onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-md-3">
-						<label for="inputEmail4">State<span class="astric">*</span></label>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee1_guar_state"
-							class="form-control"
-							onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Country<span class="astric">*</span></label
-						>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee1_guar_country"
-							class="form-control"
-							onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Pincode<span class="astric">*</span></label
-						>
-						<input
-							type="number"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee1_guar_pincode"
-							class="form-control"
-							onKeyPress="if(this.value.length==6) return false;"
-							onkeyup="validatePincode(this.value,'4');"
-						/>
-						<span id="pincodeerror4"></span>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Mobile No. of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="number"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee1_guar_mobile"
-							class="form-control"
-							maxlength="10"
-							onKeyPress="if(this.value.length==10) return false;"
-							onkeyup="validateMobile(this.value,'4');"
-						/>
-						<span id="mobileerror4"></span>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Email Id of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="email"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee1_guar_email"
-							class="form-control"
-							onkeyup="validateEmail(this.value,'4');"
-						/>
-						<span id="emailerror4"></span>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4" style="margin: 1px"
-							>Relationship of Guardian with nominee<span class="astric"
-								>*</span
-							></label
-						>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee1_guar_relation"
-							class="form-control"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Select any ID PROOF<span class="astric">*</span></label
-						>
-						<select
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee1_guar_Select_id"
-							class="form-control"
-						>
-							<option value="">---Select--</option>
-							<option value="PAN">PAN</option>
-							<option value="PHOTOGRAPH">PHOTOGRAPH</option>
-							<option value="AADHAR">AADHAR</option>
-							<option value="POI">POI</option>
-							<option value="DEMAT">DEMAT</option>
-						</select>
-					</div>
-					<div class="form-group col-md-3">
-						<h6 style="margin: 0">
-							Guardian Identification details (only png, jpg)<span
-								class="astric"
-								>*</span
-							>
-						</h6>
-						<span>(file should be less than 4MB)</span>
-						<div class="file-upload w-auto">
-							<button class="btn-upload" style="margin: 0">
-								<span class="text-browse">Browse..</span>
-								<span class="text-file-name" id="nominee1_guar_file"
-									>No file selected</span
-								>
-							</button>
-							<input
-								type="file"
-								class="form-control d-none"
-								id="Nominee1_guar_proof"
-								accept="image/jpeg,image/jpg,image/png"
-							/>
-						</div>
-					</div>
-				</div>
-				<div align="center">
-					<button class="continue" onclick="nominee_minor1_close()">
-						Continue
-					</button>
-				</div>
-				<span onclick="minor_detail1()" class="close" title="Close"
-					>&times;</span
-				>
-				<div class="text-center mt-3">
-					<span onclick="minor_detail1()" class="clo_se" title="Close"
-						>&times;</span
-					>
-				</div>
-			</div>
-		</div>
-		
-		
-		<div id="minor_detail2" class="showData" align="center">
-			<div
-				id="edit"
-				class="animate effect8 edit_div"
-				style="width: fit-content"
-			>
-				<h5 class="text-center"><u>Only if Nominee(s) is a minor</u></h5>
-				<div class="form-row">
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Date of birth of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="date"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee2_guar_dob"
-							class="form-control"
-							onchange="get_guar2_age()"
-							autocomplete="off"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Name of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee2_guar_name"
-							class="form-control"
-							onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Address of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee2_guar_adress"
-							class="form-control"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4">City<span class="astric">*</span></label>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee2_guar_city"
-							class="form-control"
-							onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-md-3">
-						<label for="inputEmail4">State<span class="astric">*</span></label>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee2_guar_state"
-							class="form-control"
-							onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Country<span class="astric">*</span></label
-						>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee2_guar_country"
-							class="form-control"
-							onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Pincode<span class="astric">*</span></label
-						>
-						<input
-							type="number"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee2_guar_pincode"
-							class="form-control"
-							onKeyPress="if(this.value.length==6) return false;"
-							onkeyup="validatePincode(this.value,'5');"
-						/>
-						<span id="pincodeerror5"></span>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Mobile No. of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="number"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee2_guar_mobile"
-							class="form-control"
-							maxlength="10"
-							onKeyPress="if(this.value.length==10) return false;"
-							onkeyup="validateMobile(this.value,'5');"
-						/>
-						<span id="mobileerror5"></span>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Email Id of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="email"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee2_guar_email"
-							class="form-control"
-							onkeyup="validateEmail(this.value,'5');"
-						/>
-						<span id="emailerror5"></span>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4" style="margin: 1px"
-							>Relationship of Guardian with nominee<span class="astric"
-								>*</span
-							></label
-						>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee2_guar_relation"
-							class="form-control"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Select any ID PROOF<span class="astric">*</span></label
-						>
-						<select
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee2_guar_Select_id"
-							class="form-control"
-						>
-							<option value="">---Select--</option>
-							<option value="PAN">PAN</option>
-							<option value="PHOTOGRAPH">PHOTOGRAPH</option>
-							<option value="AADHAR">AADHAR</option>
-							<option value="POI">POI</option>
-							<option value="DEMAT">DEMAT</option>
-						</select>
-					</div>
-					<div class="form-group col-md-3">
-						<h6 style="margin: 0">
-							Guardian Identification details (only png, jpg)<span
-								class="astric"
-								>*</span
-							>
-						</h6>
-						<span>(file should be less than 4MB)</span>
-						<div class="file-upload w-auto">
-							<button class="btn-upload" style="margin: 0">
-								<span class="text-browse">Browse..</span>
-								<span class="text-file-name" id="Nominee2_guar_file"
-									>No file selected</span
-								>
-							</button>
-							<input
-								type="file"
-								class="form-control d-none"
-								id="Nominee2_guar_proof"
-								accept="image/jpeg,image/jpg,image/png"
-							/>
-						</div>
-					</div>
-				</div>
-				<div align="center">
-					<button class="continue" onclick="nominee_minor2_close()">
-						Continue
-					</button>
-				</div>
-				<span onclick="minor_detail2()" class="close" title="Close"
-					>&times;</span
-				>
-				<div class="text-center mt-3">
-					<span onclick="minor_detail2()" class="clo_se" title="Close"
-						>&times;</span
-					>
-				</div>
-			</div>
-		</div>
+function check_nomiee(id) {
+	for (var i = 1; i <= 2; i++) {
+		if (
+			'check_nomiee' + i === id &&
+			document.getElementById('check_nomiee' + i).checked === true
+		) {
+			document.getElementById('check_nomiee' + i).checked = true;
+			var check_nomiee = document.getElementById('check_nomiee' + i).value;
+			console.log(check_nomiee);
+			sessionStorage.setItem('check_nomiee', check_nomiee);
+		} else {
+			document.getElementById('check_nomiee' + i).checked = false;
+		}
+	}
+}
 
-		<div id="minor_detail3" class="showData" align="center">
-			<div
-				id="edit"
-				class="animate effect8 edit_div"
-				style="width: fit-content"
-			>
-				<h5 class="text-center"><u>Only if Nominee(s) is a minor</u></h5>
-				<div class="form-row">
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Date of birth of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="date"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee3_guar_dob"
-							class="form-control"
-							onchange="get_guar3_age()"
-							autocomplete="off"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Name of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee3_guar_name"
-							class="form-control"
-							onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Address of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee3_guar_adress"
-							class="form-control"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4">City<span class="astric">*</span></label>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee3_guar_city"
-							class="form-control"
-							onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-md-3">
-						<label for="inputEmail4">State<span class="astric">*</span></label>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee3_guar_state"
-							class="form-control"
-							onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Country<span class="astric">*</span></label
-						>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee3_guar_country"
-							class="form-control"
-							onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Pincode<span class="astric">*</span></label
-						>
-						<input
-							type="number"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee3_guar_pincode"
-							class="form-control"
-							onKeyPress="if(this.value.length==6) return false;"
-							onkeyup="validatePincode(this.value,'6');"
-						/>
-						<span id="pincodeerror6"></span>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Mobile No. of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="number"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee3_guar_mobile"
-							class="form-control"
-							maxlength="10"
-							onKeyPress="if(this.value.length==10) return false;"
-							onkeyup="validateMobile(this.value,'6');"
-						/>
-						<span id="mobileerror6"></span>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Email Id of Guardian<span class="astric">*</span></label
-						>
-						<input
-							type="email"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee3_guar_email"
-							class="form-control"
-							onkeyup="validateEmail(this.value,'6');"
-						/>
-						<span id="emailerror6"></span>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4" style="margin: 1px"
-							>Relationship of Guardian with nominee<span class="astric"
-								>*</span
-							></label
-						>
-						<input
-							type="text"
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee3_guar_relation"
-							class="form-control"
-							onkeydown="this.value = this.value.trimStart()"
-							onkeyup="this.value = this.value.trimStart()"
-						/>
-					</div>
-					<div class="form-group col-md-3">
-						<label for="inputEmail4"
-							>Select any ID PROOF<span class="astric">*</span></label
-						>
-						<select
-							name=""
-							required=""
-							placeholder=""
-							id="Nominee3_guar_Select_id"
-							class="form-control"
-						>
-							<option value="">---Select--</option>
-							<option value="PAN">PAN</option>
-							<option value="PHOTOGRAPH">PHOTOGRAPH</option>
-							<option value="AADHAR">AADHAR</option>
-							<option value="POI">POI</option>
-							<option value="DEMAT">DEMAT</option>
-						</select>
-					</div>
-					<div class="form-group col-md-3">
-						<h6 style="margin: 0">
-							Guardian Identification details (only png, jpg)<span
-								class="astric"
-								>*</span
-							>
-						</h6>
-						<span>(file should be less than 4MB)</span>
-						<div class="file-upload w-auto">
-							<button class="btn-upload" style="margin: 0">
-								<span class="text-browse">Browse..</span>
-								<span class="text-file-name" id="Nominee3_guar_file"
-									>No file selected</span
-								>
-							</button>
-							<input
-								type="file"
-								class="form-control d-none"
-								id="Nominee3_guar_proof"
-								accept="image/jpeg,image/jpg,image/png"
-							/>
-						</div>
-					</div>
-				</div>
-				<div align="center">
-					<button class="continue" onclick="nominee_minor3_close()">
-						Continue
-					</button>
-				</div>
-				<span onclick="minor_detail3()" class="close" title="Close"
-					>&times;</span
-				>
-				<div class="text-center mt-3">
-					<span onclick="minor_detail3()" class="clo_se" title="Close"
-						>&times;</span
-					>
-				</div>
-			</div>
-		</div>
 
+
+
+function getAge(dateString) {
+	var today = new Date();
+	var birthDate = new Date(dateString);
+	var age = today.getFullYear() - birthDate.getFullYear();
+	var m = today.getMonth() - birthDate.getMonth();
+	if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+		age--;
+	}
+	return age;
+}
+
+function get_guar1_age() {
+	if ($('#Nominee1_guar_dob').val() != '') {
+		var selected_date = $('#Nominee1_guar_dob').val();
+		var datestring = selected_date.split('-');
+		if (getAge(selected_date) < 18 && !datestring[0].startsWith('0')) {
+			console.log(getAge(selected_date));
+			alert("Guardian can't be below 18");
+			$('#Nominee1_guar_dob').val('');
+		} else {
+			if (getAge(selected_date) > 100 && !datestring[0].startsWith('0')) {
+				alert("Guardian can't be above 100");
+				$('#Nominee1_guar_dob').val('');
+			}
+		}
+	}
+}
+
+function get_guar2_age() {
+	if ($('#Nominee2_guar_dob').val() != '') {
+		var selected_date = $('#Nominee2_guar_dob').val();
+		var datestring = selected_date.split('-');
+		if (getAge(selected_date) < 18 && !datestring[0].startsWith('0')) {
+			console.log(getAge(selected_date));
+			alert("Guardian can't be below 18");
+			$('#Nominee2_guar_dob').val('');
+		} else {
+			if (getAge(selected_date) > 100 && !datestring[0].startsWith('0')) {
+				alert("Guardian can't be above 100");
+				$('#Nominee2_guar_dob').val('');
+			}
+		}
+	}
+}
+
+function get_guar3_age() {
+	if ($('#Nominee3_guar_dob').val() != '') {
+		var selected_date = $('#Nominee3_guar_dob').val();
+		var datestring = selected_date.split('-');
+		if (getAge(selected_date) < 18 && !datestring[0].startsWith('0')) {
+			console.log(getAge(selected_date));
+			alert("Guardian can't be below 18");
+			$('#Nominee3_guar_dob').val('');
+		} else {
+			if (getAge(selected_date) > 100 && !datestring[0].startsWith('0')) {
+				alert("Guardian can't be above 100");
+				$('#Nominee3_guar_dob').val('');
+			}
+		}
+	}
+}
+
+function getageondate() {
+	if ($('#Nominee1_DOB').val() != '') {
+		var selected_date = $('#Nominee1_DOB').val();
+		var datestring = selected_date.split('-');
+		if (getAge(selected_date) < 18 && !datestring[0].startsWith('0')) {
+			if (sessionStorage.getItem('nomineedate1') != 'yes') {
+				$('#minor_detail1').show();
+			} else {
+				sessionStorage.removeItem('nomineedate1');
+			}
+		} else {
+			sessionStorage.removeItem('nomineedate1');
+			if (getAge(selected_date) > 100 && !datestring[0].startsWith('0')) {
+				alert("Nominee can't be above 100");
+				$('#Nominee1_DOB').val('');
+			}
+		}
+		//getAge("1980/08/10")
+	}
+}
+
+function nominee_minor1_close() {
+	var pancard_pattern = /(^([a-zA-Z]{5})([0-9]{4})([a-zA-Z]{1})$)/;
+	var email_pattern =
+		/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	if (
+		$('#Nominee1_guar_name').val() == '' ||
+		$('#Nominee1_guar_dob').val() == '' ||
+		$('#Nominee1_guar_adress').val() == '' ||
+		$('#Nominee1_guar_city').val() == '' ||
+		$('#Nominee1_guar_state').val() == '' ||
+		$('#Nominee1_guar_country').val() == '' ||
+		$('#Nominee1_guar_mobile').val() == '' ||
+		$('#Nominee1_guar_email').val() == '' ||
+		$('#Nominee1_guar_relation').val() == '' ||
+		$('#Nominee1_guar_Select_id').val() == '' ||
+		$('#Nominee1_guar_pincode').val() == '' ||
+		($('#Nominee1_guar_proof').attr('src') == '' &&
+			$('#nominee1_guar_file')[0].files.length == 0)
+	) {
+		alert('Please fill all details');
+	} else if (
+		$('#Nominee1_guar_mobile').val().length < 10 ||
+		$('#Nominee1_guar_mobile').val().length > 10
+	) {
+		alert('Please enter valid mobile no');
+	} else if (
+		!email_pattern.test(String($('#Nominee1_guar_email').val()).toLowerCase())
+	) {
+		alert('Please enter valid Email Id');
+	} else if (
+		$('#Nominee1_guar_pincode').val().length < 6 ||
+		$('#Nominee1_guar_pincode').val().length > 6
+	) {
+		alert('Please enter valid pincode');
+	} else {
+		$('#minor_detail1').hide();
+	}
+}
+
+function getageondate2() {
+	if ($('#Nominee2_DOB').val() != '') {
+		var selected_date = $('#Nominee2_DOB').val();
+		var datestring = selected_date.split('-');
+		if (getAge(selected_date) < 18 && !datestring[0].startsWith('0')) {
+			if (sessionStorage.getItem('nomineedate2') != 'yes') {
+				$('#minor_detail2').show();
+			} else {
+				sessionStorage.removeItem('nomineedate2');
+			}
+		} else {
+			sessionStorage.removeItem('nomineedate2');
+			if (getAge(selected_date) > 100 && !datestring[0].startsWith('0')) {
+				alert("Nominee can't be above 100");
+				$('#Nominee2_DOB').val('');
+			}
+		}
+		//getAge("1980/08/10")
+	}
+}
+
+function nominee_minor2_close() {
+	var pancard_pattern = /(^([a-zA-Z]{5})([0-9]{4})([a-zA-Z]{1})$)/;
+	var email_pattern =
+		/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	if (
+		$('#Nominee2_guar_name').val() == '' ||
+		$('#Nominee2_guar_dob').val() == '' ||
+		$('#Nominee2_guar_adress').val() == '' ||
+		$('#Nominee2_guar_city').val() == '' ||
+		$('#Nominee2_guar_state').val() == '' ||
+		$('#Nominee2_guar_country').val() == '' ||
+		$('#Nominee2_guar_mobile').val() == '' ||
+		$('#Nominee2_guar_email').val() == '' ||
+		$('#Nominee2_guar_relation').val() == '' ||
+		$('#Nominee2_guar_Select_id').val() == '' ||
+		$('#Nominee2_guar_pincode').val() == '' ||
+		($('#Nominee2_guar_proof').attr('src') == '' &&
+			$('#nominee2_guar_file')[0].files.length == 0)
+	) {
+		alert('Please fill all details');
+	} else if (
+		$('#Nominee2_guar_mobile').val().length < 10 ||
+		$('#Nominee2_guar_mobile').val().length > 10
+	) {
+		alert('Please enter valid mobile no');
+	} else if (
+		!email_pattern.test(String($('#Nominee2_guar_email').val()).toLowerCase())
+	) {
+		alert('Please enter valid Email Id');
+	} else if (
+		$('#Nominee2_guar_pincode').val().length < 6 ||
+		$('#Nominee2_guar_pincode').val().length > 6
+	) {
+		alert('Please enter valid pincode');
+	} else {
+		$('#minor_detail2').hide();
+	}
+}
+
+function getageondate3() {
+	if ($('#Nominee3_DOB').val() != '') {
+		var selected_date = $('#Nominee3_DOB').val();
+		var datestring = selected_date.split('-');
+		if (getAge(selected_date) < 18 && !datestring[0].startsWith('0')) {
+			if (sessionStorage.getItem('nomineedate3') != 'yes') {
+				$('#minor_detail3').show();
+			} else {
+				sessionStorage.removeItem('nomineedate3');
+			}
+		} else {
+			sessionStorage.removeItem('nomineedate3');
+			if (getAge(selected_date) > 100 && !datestring[0].startsWith('0')) {
+				alert("Nominee can't be above 100");
+				$('#Nominee3_DOB').val('');
+			}
+		}
+		//getAge("1980/08/10")
+	}
+}
+
+function nominee_minor3_close() {
+	var pancard_pattern = /(^([a-zA-Z]{5})([0-9]{4})([a-zA-Z]{1})$)/;
+	var email_pattern =
+		/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	if (
+		$('#Nominee3_guar_name').val() == '' ||
+		$('#Nominee3_guar_dob').val() == '' ||
+		$('#Nominee3_guar_adress').val() == '' ||
+		$('#Nominee3_guar_city').val() == '' ||
+		$('#Nominee3_guar_state').val() == '' ||
+		$('#Nominee3_guar_country').val() == '' ||
+		$('#Nominee3_guar_mobile').val() == '' ||
+		$('#Nominee3_guar_email').val() == '' ||
+		$('#Nominee3_guar_relation').val() == '' ||
+		$('#Nominee3_guar_Select_id').val() == '' ||
+		$('#Nominee3_guar_pincode').val() == '' ||
+		$('#Nominee3_guar_proof').val() == ''
+	) {
+		alert('Please fill all details');
+	} else if (
+		$('#Nominee3_guar_mobile').val().length < 10 ||
+		$('#Nominee3_guar_mobile').val().length > 10
+	) {
+		alert('Please enter valid mobile no');
+	} else if (
+		!email_pattern.test(String($('#Nominee3_guar_email').val()).toLowerCase())
+	) {
+		alert('Please enter valid Email Id');
+	} else if (
+		$('#Nominee3_guar_pincode').val().length < 6 ||
+		$('#Nominee3_guar_pincode').val().length > 6
+	) {
+		alert('Please enter valid pincode');
+	} else {
+		$('#minor_detail3').hide();
+	}
+}
