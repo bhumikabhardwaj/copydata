@@ -1,12 +1,16 @@
-var check_nomiee1 = document.getElementById('check_nomiee1');
-	var check_nomiee2 = document.getElementById('check_nomiee2');
-	var nominee = '';
-
-	if (check_nomiee1.checked == true) {
-		nominee = 'yes';
-	} else {
-		nominee = 'no';
-	}
-	if (check_nomiee1.checked == false && check_nomiee2.checked == false) {
-		alert('please select Nominee option');
-	}
+if (nominee == 'yes') {
+							sessionStorage.setItem('nominee_check', 'yes');
+							sessionStorage.setItem('re-nominee', 'yes');
+							sessionStorage.removeItem('re-segment');
+							$('#personal_div').css('display', 'none');
+							$('#bank_div').css('display', 'none');
+							$('#segment_div').css('display', 'none');
+							$('#document_div').css('display', 'none');
+							$('#nominee_div').css('display', 'block');
+							$('#bank_menu').removeClass('focus_menu');
+							$('#personal_menu').removeClass('focus_menu');
+							$('#other_menu').removeClass('focus_menu');
+							$('#document_menu').removeClass('focus_menu');
+							$('#nominee_menu').css('display', 'block');
+							$('#nominee_menu').addClass('focus_menu');
+						}
