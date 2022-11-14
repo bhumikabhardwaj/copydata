@@ -14,3 +14,719 @@ if (nominee == 'yes') {
 							$('#nominee_menu').css('display', 'block');
 							$('#nominee_menu').addClass('focus_menu');
 						}
+
+
+
+function submit_nominee() {
+	var clientcode = sessionStorage.getItem('user');
+	var Nominee1_name = $('#Nominee1_name').val();
+	var Nominee1_mobile = $('#Nominee1_mobile').val();
+	var Nominee1_email = $('#Nominee1_email').val();
+	var Nominee1_PAN = $('#Nominee1_PAN').val();
+	var Nominee1_DOB = $('#Nominee1_DOB').val().split('-').reverse().join('-');
+	var Nominee1_relation = $('#Nominee1_relation').val();
+	var Nominee1_address1 = $('#Nominee1_address1').val();
+	var Nominee1_address2 = $('#Nominee1_address2').val();
+	var Nominee1_city = $('#Nominee1_city').val();
+	var Nominee1_state = $('#Nominee1_state').val();
+	var Nominee1_country = $('#Nominee1_country').val();
+	var Nominee1_pincode = $('#Nominee1_pincode').val();
+	var Nominee1_percentage = $('#Nominee1_percentage').val();
+	var Nominee1_Select_id = $('#Nominee1_Select_id').val();
+	var nominee1_proof = $('#nominee1_proof').val();
+
+	var Nominee2_name = $('#Nominee2_name').val();
+	var Nominee2_mobile = $('#Nominee2_mobile').val();
+	var Nominee2_email = $('#Nominee2_email').val();
+	var Nominee2_PAN = $('#Nominee2_PAN').val();
+	var Nominee2_DOB = $('#Nominee2_DOB').val().split('-').reverse().join('-');
+	var Nominee2_relation = $('#Nominee2_relation').val();
+	var Nominee2_address1 = $('#Nominee2_address1').val();
+	var Nominee2_address2 = $('#Nominee2_address2').val();
+	var Nominee2_city = $('#Nominee2_city').val();
+	var Nominee2_state = $('#Nominee2_state').val();
+	var Nominee2_country = $('#Nominee2_country').val();
+	var Nominee2_pincode = $('#Nominee2_pincode').val();
+	var Nominee2_percentage = $('#Nominee2_percentage').val();
+	var Nominee2_Select_id = $('#Nominee2_Select_id').val();
+	var nominee2_proof = $('#nominee2_proof').val();
+
+	var Nominee3_name = $('#Nominee3_name').val();
+	var Nominee3_mobile = $('#Nominee3_mobile').val();
+	var Nominee3_email = $('#Nominee3_email').val();
+	var Nominee3_PAN = $('#Nominee3_PAN').val();
+	var Nominee3_DOB = $('#Nominee3_DOB').val().split('-').reverse().join('-');
+	var Nominee3_relation = $('#Nominee3_relation').val();
+	var Nominee3_address1 = $('#Nominee3_address1').val();
+	var Nominee3_address2 = $('#Nominee3_address2').val();
+	var Nominee3_city = $('#Nominee3_city').val();
+	var Nominee3_state = $('#Nominee3_state').val();
+	var Nominee3_country = $('#Nominee3_country').val();
+	var Nominee3_pincode = $('#Nominee3_pincode').val();
+	var Nominee3_percentage = $('#Nominee3_percentage').val();
+	var Nominee3_Select_id = $('#Nominee3_Select_id').val();
+	var nominee3_proof = $('#nominee3_proof').val();
+	var Nom1_percentage = Number($('#Nominee1_percentage').val());
+	var Nom2_percentage = Number($('#Nominee2_percentage').val());
+	var Nom3_percentage = Number($('#Nominee3_percentage').val());
+	var total1 = Number(Nom1_percentage);
+	var total2 = Number(Nom1_percentage + Nom2_percentage);
+	var total3 = Number(Nom1_percentage + Nom2_percentage + Nom3_percentage);
+	//var pincode_pattern=/^([0-9](6,6)+$/;
+	var pancard_pattern = /(^([a-zA-Z]{5})([0-9]{4})([a-zA-Z]{1})$)/;
+	var email_pattern =
+		/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+	if (
+		Nominee1_name == '' ||
+		Nominee1_mobile == '' ||
+		Nominee1_email == '' ||
+		Nominee1_DOB == '' ||
+		Nominee1_relation == '' ||
+		Nominee1_address1 == '' ||
+		Nominee1_address2 == '' ||
+		Nominee1_city == '' ||
+		Nominee1_state == '' ||
+		Nominee1_country == '' ||
+		Nominee1_pincode == '' ||
+		Nominee1_percentage == ''
+	) {
+		alert('Please Enter All Detail');
+	} else if (
+		$('#Nominee1_mobile').val().length < 10 ||
+		$('#Nominee1_mobile').val().length > 10
+	) {
+		$('#error_msg_nominee1').replaceWith(
+			'<b id="error_msg_nominee1" class="error_msg">* Please Enter 10 Digit Mobile No</b>',
+		);
+	} else if (!email_pattern.test(String(Nominee1_email).toLowerCase())) {
+		$('#error_msg_nominee1').replaceWith(
+			'<b id="error_msg_nominee1" class="error_msg">* Please enter valid Email Id.</b>',
+		);
+	} else if (Nominee1_pincode.length > 6 || Nominee1_pincode.length < 6) {
+		$('#error_msg_nominee1').replaceWith(
+			'<b id="error_msg_nominee1" class="error_msg">* Pin code should be 6 digits.</b>',
+		);
+	} else {
+		if ($('#nominee2').css('display') == 'block') {
+			if (
+				Nominee2_name == '' ||
+				Nominee2_mobile == '' ||
+				Nominee2_email == '' ||
+				Nominee2_DOB == '' ||
+				Nominee2_relation == '' ||
+				Nominee2_address1 == '' ||
+				Nominee2_address2 == '' ||
+				Nominee2_city == '' ||
+				Nominee2_state == '' ||
+				Nominee2_country == '' ||
+				Nominee2_pincode == '' ||
+				Nominee2_percentage == ''
+			) {
+				alert('Please Enter All Detail');
+			} else if (
+				$('#Nominee2_mobile').val().length < 10 ||
+				$('#Nominee2_mobile').val().length > 10
+			) {
+				$('#error_msg_nominee2').replaceWith(
+					'<b id="error_msg_nominee2" class="error_msg">* Please Enter 10 Digit Mobile No</b>',
+				);
+			} else if (!email_pattern.test(String(Nominee2_email).toLowerCase())) {
+				$('#error_msg_nominee2').replaceWith(
+					'<b id="error_msg_nominee2" class="error_msg">* Please enter valid Email Id.</b>',
+				);
+			} else if (Nominee2_pincode.length > 6 || Nominee2_pincode.length < 6) {
+				$('#error_msg_nominee2').replaceWith(
+					'<b id="error_msg_nominee2" class="error_msg">* Pin code should be 6 digits.</b>',
+				);
+			} else {
+				if ($('#nominee3').css('display') == 'block') {
+					if (
+						Nominee3_name == '' ||
+						Nominee3_mobile == '' ||
+						Nominee3_email == '' ||
+						Nominee3_DOB == '' ||
+						Nominee3_relation == '' ||
+						Nominee3_address1 == '' ||
+						Nominee3_address2 == '' ||
+						Nominee3_city == '' ||
+						Nominee3_state == '' ||
+						Nominee3_country == '' ||
+						Nominee3_pincode == '' ||
+						Nominee3_percentage == ''
+					) {
+						alert('Please Enter All Detail');
+					} else if (
+						$('#Nominee3_mobile').val().length < 10 ||
+						$('#Nominee3_mobile').val().length > 10
+					) {
+						$('#error_msg_nominee3').replaceWith(
+							'<b id="error_msg_nominee3" class="error_msg">(Enter 10 Digit Mobile No)</b>',
+						);
+					} else if (
+						!email_pattern.test(String(Nominee3_email).toLowerCase())
+					) {
+						$('#error_msg_nominee3').replaceWith(
+							'<b id="error_msg_nominee3" class="error_msg">* Please enter valid Email Id.</b>',
+						);
+					} else if (
+						Nominee3_pincode.length > 6 ||
+						Nominee3_pincode.length < 6
+					) {
+						$('#error_msg_nominee3').replaceWith(
+							'<b id="error_msg_nominee3" class="error_msg">* Pin code should be 6 digits.</b>',
+						);
+					} else {
+						if (total3 > 100 || total3 < 100) {
+							alert('Sum of three Nominee Percentage  should be equal to 100.');
+						} else {
+							var IndNum = /^[0]?[6789]\d{9}$/;
+							if (Nominee1_mobile.match(IndNum)) {
+								if (Nominee2_mobile.match(IndNum)) {
+									if (Nominee3_mobile.match(IndNum)) {
+										if (
+											$('#nominee1_proof').attr('src') == '' ||
+											$('#nominee2_proof').attr('src') == '' ||
+											$('#nominee3_proof').attr('src') == ''
+										) {
+											alert('Please upload all document');
+										} else {
+											$('.se-pre-con').show();
+											var json_data = {
+												clientcode: sessionStorage.getItem('user'),
+												Nominee1_name: Nominee1_name,
+												Nominee1_PAN: Nominee1_PAN,
+												Nominee1_DOB: Nominee1_DOB,
+												Nominee1_relation: Nominee1_relation,
+												Nominee1_address1: Nominee1_address1,
+												Nominee1_address2: Nominee1_address2,
+												Nominee1_city: Nominee1_city,
+												Nominee1_state: Nominee1_state,
+												Nominee1_country: Nominee1_country,
+												Nominee1_pincode: Nominee1_pincode,
+												Nominee1_mobile: Nominee1_mobile,
+												Nominee1_email: Nominee1_email,
+												Nominee1_percentage: Nominee1_percentage,
+												Nominee1_Select_id: Nominee1_Select_id,
+												Nominee2_name: Nominee2_name,
+												Nominee2_PAN: Nominee2_PAN,
+												Nominee2_DOB: Nominee2_DOB,
+												Nominee2_relation: Nominee2_relation,
+												Nominee2_address1: Nominee2_address1,
+												Nominee2_address2: Nominee2_address2,
+												Nominee2_city: Nominee2_city,
+												Nominee2_state: Nominee2_state,
+												Nominee2_country: Nominee2_country,
+												Nominee2_pincode: Nominee2_pincode,
+												Nominee2_mobile: Nominee2_mobile,
+												Nominee2_email: Nominee2_email,
+												Nominee2_percentage: Nominee2_percentage,
+												Nominee2_Select_id: Nominee2_Select_id,
+												Nominee3_name: Nominee3_name,
+												Nominee3_PAN: Nominee3_PAN,
+												Nominee3_DOB: Nominee3_DOB,
+												Nominee3_relation: Nominee3_relation,
+												Nominee3_address1: Nominee3_address1,
+												Nominee3_address2: Nominee3_address2,
+												Nominee3_city: Nominee3_city,
+												Nominee3_state: Nominee3_state,
+												Nominee3_country: Nominee3_country,
+												Nominee3_pincode: Nominee3_pincode,
+												Nominee3_mobile: Nominee3_mobile,
+												Nominee3_email: Nominee3_email,
+												Nominee3_percentage: Nominee3_percentage,
+												Nominee3_Select_id: Nominee3_Select_id,
+												Guardian_name: $('#Nominee1_guar_name').val(),
+												Guardian_dob: $('#Nominee1_guar_dob')
+													.val()
+													.split('-')
+													.reverse()
+													.join('-'),
+												Guardian_address: $('#Nominee1_guar_adress').val(),
+												Guardian_city: $('#Nominee1_guar_city').val(),
+												Guardian_state: $('#Nominee1_guar_state').val(),
+												Guardian_country: $('#Nominee1_guar_country').val(),
+												Guardian_mobile: $('#Nominee1_guar_mobile').val(),
+												Guardian_email: $('#Nominee1_guar_email').val(),
+												Guardian_relation: $('#Nominee1_guar_relation').val(),
+												Guardian_doc_type: $('#Nominee1_guar_Select_id').val(),
+												Guardian_pincode: $('#Nominee1_guar_pincode').val(),
+												Guardian_name2: $('#Nominee2_guar_name').val(),
+												Guardian_dob2: $('#Nominee2_guar_dob')
+													.val()
+													.split('-')
+													.reverse()
+													.join('-'),
+												Guardian_address2: $('#Nominee2_guar_adress').val(),
+												Guardian_city2: $('#Nominee2_guar_city').val(),
+												Guardian_state2: $('#Nominee2_guar_state').val(),
+												Guardian_country2: $('#Nominee2_guar_country').val(),
+												Guardian_mobile2: $('#Nominee2_guar_mobile').val(),
+												Guardian_email2: $('#Nominee2_guar_email').val(),
+												Guardian_relation2: $('#Nominee2_guar_relation').val(),
+												Guardian_doc_type2: $('#Nominee2_guar_Select_id').val(),
+												Guardian_pincode2: $('#Nominee2_guar_pincode').val(),
+												Guardian_name3: $('#Nominee3_guar_name').val(),
+												Guardian_dob3: $('#Nominee3_guar_dob')
+													.val()
+													.split('-')
+													.reverse()
+													.join('-'),
+												Guardian_address3: $('#Nominee3_guar_adress').val(),
+												Guardian_city3: $('#Nominee3_guar_city').val(),
+												Guardian_state3: $('#Nominee3_guar_state').val(),
+												Guardian_country3: $('#Nominee3_guar_country').val(),
+												Guardian_mobile3: $('#Nominee3_guar_mobile').val(),
+												Guardian_email3: $('#Nominee3_guar_email').val(),
+												Guardian_relation3: $('#Nominee3_guar_relation').val(),
+												Guardian_doc_type3: $('#Nominee3_guar_Select_id').val(),
+												Guardian_pincode3: $('#Nominee3_guar_pincode').val(),
+											};
+											console.log(json_data);
+											$.ajax({
+												crossOrigin: true,
+												type: 'POST',
+												contentType: 'application/json; charset=utf-8',
+												url: '/joindre/rekycGetNomineeDetails',
+												data: JSON.stringify(json_data),
+												success: function (data) {
+													console.log(data);
+													var formData = new FormData();
+													formData.append(
+														'Nominee1',
+														$('#nominee1_proof')[0].files[0],
+													);
+													formData.append(
+														'Nominee2',
+														$('#nominee2_proof')[0].files[0],
+													);
+													formData.append(
+														'Nominee3',
+														$('#nominee3_proof')[0].files[0],
+													);
+													formData.append(
+														'Guardian_doc_name',
+														$('#Nominee1_guar_proof')[0].files[0],
+													);
+													formData.append(
+														'Guardian_doc_name2',
+														$('#Nominee2_guar_proof')[0].files[0],
+													);
+													formData.append(
+														'Guardian_doc_name3',
+														$('#Nominee3_guar_proof')[0].files[0],
+													);
+													console.log(formData);
+													$.ajax({
+														crossOrigin: true,
+														type: 'POST',
+														contentType: false,
+														processData: false,
+														url:
+															'/joindre/rekycUploadNomineeDetails/' +
+															sessionStorage.getItem('user'),
+														data: formData,
+														success: function (data) {
+															console.log(data);
+															$('.se-pre-con').hide();
+															sessionStorage.setItem('re-document', 'yes');
+															sessionStorage.removeItem('re-nominee');
+															$('#personal_div').css('display', 'none');
+															$('#bank_div').css('display', 'none');
+															$('#segment_div').css('display', 'none');
+															$('#nominee_div').css('display', 'none');
+															$('#document_div').css('display', 'block');
+															$('#nominee_menu').removeClass('focus_menu');
+															$('#bank_menu').removeClass('focus_menu');
+															$('#personal_menu').removeClass('focus_menu');
+															$('#other_menu').removeClass('focus_menu');
+															$('#document_menu').addClass('focus_menu');
+														},
+														error: function (data) {
+															$('.se-pre-con').hide();
+															$('#notification').css('display', 'block');
+															setInterval(function () {
+																$('#notification').css('display', 'none');
+															}, 5000);
+														},
+													});
+												},
+												error: function (data) {
+													$('.se-pre-con').hide();
+													$('#notification').css('display', 'block');
+													setInterval(function () {
+														$('#notification').css('display', 'none');
+													}, 5000);
+												},
+												dataType: 'json',
+											});
+										}
+									} else {
+										$('#error_msg_nominee3').replaceWith(
+											'<b id="error_msg_nominee3" class="error_msg">* Mobile No. is not valid</b>',
+										);
+									}
+								} else {
+									$('#error_msg_nominee2').replaceWith(
+										'<b id="error_msg_nominee2" class="error_msg">* Mobile No. is not valid</b>',
+									);
+								}
+							} else {
+								$('#error_msg_nominee1').replaceWith(
+									'<b id="error_msg_nominee1" class="error_msg">* Mobile No. is not valid</b>',
+								);
+							}
+						}
+					}
+				} else {
+					if (total2 > 100 || total2 < 100) {
+						alert(
+							'Sum of Nominee1 and Nominee2 Percentage should be equal to 100.',
+						);
+					} else {
+						var IndNum = /^[0]?[6789]\d{9}$/;
+						if (Nominee1_mobile.match(IndNum)) {
+							if (Nominee2_mobile.match(IndNum)) {
+								if (
+									$('#nominee1_proof').attr('src') == '' ||
+									$('#nominee1_proof').attr('src') == undefined ||
+									$('#nominee2_proof').attr('src') == '' ||
+									$('#nominee2_proof').attr('src') == undefined
+								) {
+									alert('Please upload all document');
+								} else {
+									$('.se-pre-con').show();
+									var json_data = {
+										clientcode: sessionStorage.getItem('user'),
+										Nominee1_name: Nominee1_name,
+										Nominee1_PAN: Nominee1_PAN,
+										Nominee1_DOB: Nominee1_DOB,
+										Nominee1_relation: Nominee1_relation,
+										Nominee1_address1: Nominee1_address1,
+										Nominee1_address2: Nominee1_address2,
+										Nominee1_city: Nominee1_city,
+										Nominee1_state: Nominee1_state,
+										Nominee1_country: Nominee1_country,
+										Nominee1_pincode: Nominee1_pincode,
+										Nominee1_mobile: Nominee1_mobile,
+										Nominee1_email: Nominee1_email,
+										Nominee1_percentage: Nominee1_percentage,
+										Nominee1_Select_id: Nominee1_Select_id,
+										Nominee2_name: Nominee2_name,
+										Nominee2_PAN: Nominee2_PAN,
+										Nominee2_DOB: Nominee2_DOB,
+										Nominee2_relation: Nominee2_relation,
+										Nominee2_address1: Nominee2_address1,
+										Nominee2_address2: Nominee2_address2,
+										Nominee2_city: Nominee2_city,
+										Nominee2_state: Nominee2_state,
+										Nominee2_country: Nominee2_country,
+										Nominee2_pincode: Nominee2_pincode,
+										Nominee2_mobile: Nominee2_mobile,
+										Nominee2_email: Nominee2_email,
+										Nominee2_percentage: Nominee2_percentage,
+										Nominee2_Select_id: Nominee2_Select_id,
+										Nominee3_name: '',
+										Nominee3_PAN: '',
+										Nominee3_DOB: '',
+										Nominee3_relation: '',
+										Nominee3_address1: '',
+										Nominee3_address2: '',
+										Nominee3_city: '',
+										Nominee3_state: '',
+										Nominee3_country: '',
+										Nominee3_pincode: '',
+										Nominee3_mobile: '',
+										Nominee3_email: '',
+										Nominee3_percentage: '',
+										Nominee3_Select_id: '',
+										Guardian_name: $('#Nominee1_guar_name').val(),
+										Guardian_dob: $('#Nominee1_guar_dob')
+											.val()
+											.split('-')
+											.reverse()
+											.join('-'),
+										Guardian_address: $('#Nominee1_guar_adress').val(),
+										Guardian_city: $('#Nominee1_guar_city').val(),
+										Guardian_state: $('#Nominee1_guar_state').val(),
+										Guardian_country: $('#Nominee1_guar_country').val(),
+										Guardian_mobile: $('#Nominee1_guar_mobile').val(),
+										Guardian_email: $('#Nominee1_guar_email').val(),
+										Guardian_relation: $('#Nominee1_guar_relation').val(),
+										Guardian_doc_type: $('#Nominee1_guar_Select_id').val(),
+										Guardian_pincode: $('#Nominee1_guar_pincode').val(),
+										Guardian_name2: $('#Nominee2_guar_name').val(),
+										Guardian_dob2: $('#Nominee2_guar_dob')
+											.val()
+											.split('-')
+											.reverse()
+											.join('-'),
+										Guardian_address2: $('#Nominee2_guar_adress').val(),
+										Guardian_city2: $('#Nominee2_guar_city').val(),
+										Guardian_state2: $('#Nominee2_guar_state').val(),
+										Guardian_country2: $('#Nominee2_guar_country').val(),
+										Guardian_mobile2: $('#Nominee2_guar_mobile').val(),
+										Guardian_email2: $('#Nominee2_guar_email').val(),
+										Guardian_relation2: $('#Nominee2_guar_relation').val(),
+										Guardian_doc_type2: $('#Nominee2_guar_Select_id').val(),
+										Guardian_pincode2: $('#Nominee2_guar_pincode').val(),
+										Guardian_name3: '',
+										Guardian_dob3: '',
+										Guardian_address3: '',
+										Guardian_city3: '',
+										Guardian_state3: '',
+										Guardian_country3: '',
+										Guardian_mobile3: '',
+										Guardian_email3: '',
+										Guardian_relation3: '',
+										Guardian_doc_type3: '',
+										Guardian_pincode3: '',
+									};
+									console.log(json_data);
+									$.ajax({
+										crossOrigin: true,
+										type: 'POST',
+										contentType: 'application/json; charset=utf-8',
+										url: '/joindre/rekycGetNomineeDetails',
+										data: JSON.stringify(json_data),
+										success: function (data) {
+											console.log(data);
+											var formData = new FormData();
+											formData.append(
+												'Nominee1',
+												$('#nominee1_proof')[0].files[0],
+											);
+											formData.append(
+												'Nominee2',
+												$('#nominee2_proof')[0].files[0],
+											);
+											formData.append(
+												'Guardian_doc_name',
+												$('#Nominee1_guar_proof')[0].files[0],
+											);
+											formData.append(
+												'Guardian_doc_name2',
+												$('#Nominee2_guar_proof')[0].files[0],
+											);
+											console.log(formData);
+											$.ajax({
+												crossOrigin: true,
+												type: 'POST',
+												contentType: false,
+												processData: false,
+												url:
+													'/joindre/rekycUploadNomineeDetails/' +
+													sessionStorage.getItem('user'),
+												data: formData,
+												success: function (data) {
+													console.log(data);
+													$('.se-pre-con').hide();
+													sessionStorage.setItem('re-document', 'yes');
+													sessionStorage.removeItem('re-nominee');
+													$('#personal_div').css('display', 'none');
+													$('#bank_div').css('display', 'none');
+													$('#segment_div').css('display', 'none');
+													$('#nominee_div').css('display', 'none');
+													$('#document_div').css('display', 'block');
+													$('#nominee_menu').removeClass('focus_menu');
+													$('#bank_menu').removeClass('focus_menu');
+													$('#personal_menu').removeClass('focus_menu');
+													$('#other_menu').removeClass('focus_menu');
+													$('#document_menu').addClass('focus_menu');
+												},
+												error: function (data) {
+													$('.se-pre-con').hide();
+													$('#notification').css('display', 'block');
+													setInterval(function () {
+														$('#notification').css('display', 'none');
+													}, 5000);
+												},
+											});
+										},
+										error: function (data) {
+											$('.se-pre-con').hide();
+											$('#notification').css('display', 'block');
+											setInterval(function () {
+												$('#notification').css('display', 'none');
+											}, 5000);
+										},
+										dataType: 'json',
+									});
+								}
+							} else {
+								$('#error_msg_nominee2').replaceWith(
+									'<b id="error_msg_nominee2" class="error_msg">* Mobile No. is not valid</b>',
+								);
+							}
+						} else {
+							$('#error_msg_nominee1').replaceWith(
+								'<b id="error_msg_nominee1" class="error_msg">* Mobile No. is not valid</b>',
+							);
+						}
+					}
+				}
+			}
+		} else {
+			if (total1 > 100 || total1 < 100) {
+				alert('Nominee1 Percentage should be equal to 100.');
+			} else {
+				var IndNum = /^[0]?[6789]\d{9}$/;
+				if (Nominee1_mobile.match(IndNum)) {
+					if (
+						$('#nominee1_proof').attr('src') == '' ||
+						$('#nominee1_proof').attr('src') == undefined
+					) {
+						alert('Please upload all document');
+					} else {
+						$('.se-pre-con').show();
+						var json_data = {
+							clientcode: sessionStorage.getItem('user'),
+							Nominee1_name: Nominee1_name,
+							Nominee1_PAN: Nominee1_PAN,
+							Nominee1_DOB: Nominee1_DOB,
+							Nominee1_relation: Nominee1_relation,
+							Nominee1_address1: Nominee1_address1,
+							Nominee1_address2: Nominee1_address2,
+							Nominee1_city: Nominee1_city,
+							Nominee1_state: Nominee1_state,
+							Nominee1_country: Nominee1_country,
+							Nominee1_pincode: Nominee1_pincode,
+							Nominee1_mobile: Nominee1_mobile,
+							Nominee1_email: Nominee1_email,
+							Nominee1_percentage: Nominee1_percentage,
+							Nominee1_Select_id: Nominee1_Select_id,
+							Nominee2_name: '',
+							Nominee2_PAN: '',
+							Nominee2_DOB: '',
+							Nominee2_relation: '',
+							Nominee2_address1: '',
+							Nominee2_address2: '',
+							Nominee2_city: '',
+							Nominee2_state: '',
+							Nominee2_country: '',
+							Nominee2_pincode: '',
+							Nominee2_mobile: '',
+							Nominee2_email: '',
+							Nominee2_percentage: '',
+							Nominee2_Select_id: '',
+							Nominee3_name: '',
+							Nominee3_PAN: '',
+							Nominee3_DOB: '',
+							Nominee3_relation: '',
+							Nominee3_address1: '',
+							Nominee3_address2: '',
+							Nominee3_city: '',
+							Nominee3_state: '',
+							Nominee3_country: '',
+							Nominee3_pincode: '',
+							Nominee3_mobile: '',
+							Nominee3_email: '',
+							Nominee3_percentage: '',
+							Nominee3_Select_id: '',
+							Guardian_name: $('#Nominee1_guar_name').val(),
+							Guardian_dob: $('#Nominee1_guar_dob')
+								.val()
+								.split('-')
+								.reverse()
+								.join('-'),
+							Guardian_address: $('#Nominee1_guar_adress').val(),
+							Guardian_city: $('#Nominee1_guar_city').val(),
+							Guardian_state: $('#Nominee1_guar_state').val(),
+							Guardian_country: $('#Nominee1_guar_country').val(),
+							Guardian_mobile: $('#Nominee1_guar_mobile').val(),
+							Guardian_email: $('#Nominee1_guar_email').val(),
+							Guardian_relation: $('#Nominee1_guar_relation').val(),
+							Guardian_doc_type: $('#Nominee1_guar_Select_id').val(),
+							Guardian_pincode: $('#Nominee1_guar_pincode').val(),
+							Guardian_name2: '',
+							Guardian_dob2: '',
+							Guardian_address2: '',
+							Guardian_city2: '',
+							Guardian_state2: '',
+							Guardian_country2: '',
+							Guardian_mobile2: '',
+							Guardian_email2: '',
+							Guardian_relation2: '',
+							Guardian_doc_type2: '',
+							Guardian_pincode2: '',
+							Guardian_name3: '',
+							Guardian_dob3: '',
+							Guardian_address3: '',
+							Guardian_city3: '',
+							Guardian_state3: '',
+							Guardian_country3: '',
+							Guardian_mobile3: '',
+							Guardian_email3: '',
+							Guardian_relation3: '',
+							Guardian_doc_type3: '',
+							Guardian_pincode3: '',
+						};
+						console.log(json_data);
+						$.ajax({
+							crossOrigin: true,
+							type: 'POST',
+							contentType: 'application/json; charset=utf-8',
+							url: '/joindre/rekycGetNomineeDetails',
+							data: JSON.stringify(json_data),
+							success: function (data) {
+								console.log(data);
+								var formData = new FormData();
+								formData.append('Nominee1', $('#nominee1_proof')[0].files[0]);
+								formData.append(
+									'Guardian_doc_name',
+									$('#Nominee1_guar_proof')[0].files[0],
+								);
+								console.log(formData);
+								$.ajax({
+									crossOrigin: true,
+									type: 'POST',
+									contentType: false,
+									processData: false,
+									url:
+										'/joindre/rekycUploadNomineeDetails/' +
+										sessionStorage.getItem('user'),
+									data: formData,
+									success: function (data) {
+										console.log(data);
+										$('.se-pre-con').hide();
+										sessionStorage.setItem('re-document', 'yes');
+										sessionStorage.removeItem('re-nominee');
+										$('#personal_div').css('display', 'none');
+										$('#bank_div').css('display', 'none');
+										$('#segment_div').css('display', 'none');
+										$('#nominee_div').css('display', 'none');
+										$('#document_div').css('display', 'block');
+										$('#nominee_menu').removeClass('focus_menu');
+										$('#bank_menu').removeClass('focus_menu');
+										$('#personal_menu').removeClass('focus_menu');
+										$('#other_menu').removeClass('focus_menu');
+										$('#document_menu').addClass('focus_menu');
+									},
+									error: function (data) {
+										$('.se-pre-con').hide();
+										$('#notification').css('display', 'block');
+										setInterval(function () {
+											$('#notification').css('display', 'none');
+										}, 5000);
+									},
+								});
+							},
+							error: function (data) {
+								$('.se-pre-con').hide();
+								$('#notification').css('display', 'block');
+								setInterval(function () {
+									$('#notification').css('display', 'none');
+								}, 5000);
+							},
+							dataType: 'json',
+						});
+					}
+				} else {
+					$('#error_msg_nominee1').replaceWith(
+						'<b id="error_msg_nominee1" class="error_msg">* Mobile No. is not valid</b>',
+					);
+				}
+			}
+		}
+	}
+}
