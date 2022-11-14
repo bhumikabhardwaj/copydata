@@ -1,3 +1,18 @@
+function previous_segment() {
+	sessionStorage.setItem('re-segment', 'yes');
+	sessionStorage.removeItem('re-document');
+	$('#personal_div').css('display', 'none');
+	$('#bank_div').css('display', 'none');
+	$('#document_div').css('display', 'none');
+	$('#segment_div').css('display', 'block');
+	$('#nominee_div').css('display', 'none');
+	$('#nominee_menu').removeClass('focus_menu');
+	$('#bank_menu').removeClass('focus_menu');
+	$('#personal_menu').removeClass('focus_menu');
+	$('#other_menu').addClass('focus_menu');
+	$('#document_menu').removeClass('focus_menu');
+}
+
 if (nominee == 'yes') {
 							sessionStorage.setItem('nominee_check', 'yes');
 							sessionStorage.setItem('re-nominee', 'yes');
