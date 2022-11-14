@@ -1,3 +1,67 @@
+function chk_nominee_2() {
+	console.log('kk');
+	if (
+		$('#Nominee1_name').val() == '' ||
+		$('#Nominee1_mobile').val() == '' ||
+		$('#Nominee1_email').val() == '' ||
+		$('#Nominee1_DOB').val() == '' ||
+		$('#Nominee1_relation').val() == '' ||
+		$('#Nominee1_address1').val() == '' ||
+		$('#Nominee1_address2').val() == '' ||
+		$('#Nominee1_city').val() == '' ||
+		$('#Nominee1_state').val() == '' ||
+		$('#Nominee1_country').val() == '' ||
+		$('#Nominee1_pincode').val() == '' ||
+		$('#Nominee1_percentage').val() == ''
+	) {
+		alert('Please fill all details of nominee 1');
+		$('#chk_secondnominee').prop('checked', false);
+	} else if (
+		$('#Nominee1_percentage').val() == '100' ||
+		$('#Nominee1_percentage').val() == 100
+	) {
+		$('#chk_secondnominee').prop('checked', false);
+	} else {
+		if ($('#chk_secondnominee').is(':checked')) {
+			$('#nominee2').show();
+		} else {
+			$('#nominee2').hide();
+		}
+	}
+}
+
+function chk_nominee_3() {
+	var Nom1_percentage = Number($('#Nominee1_percentage').val());
+	var Nom2_percentage = Number($('#Nominee2_percentage').val());
+	var total2 = Number(Nom1_percentage + Nom2_percentage);
+	if (
+		$('#Nominee2_name').val() == '' ||
+		$('#Nominee2_mobile').val() == '' ||
+		$('#Nominee2_email').val() == '' ||
+		$('#Nominee2_DOB').val() == '' ||
+		$('#Nominee2_relation').val() == '' ||
+		$('#Nominee2_address1').val() == '' ||
+		$('#Nominee2_address2').val() == '' ||
+		$('#Nominee2_city').val() == '' ||
+		$('#Nominee2_state').val() == '' ||
+		$('#Nominee2_country').val() == '' ||
+		$('#Nominee2_pincode').val() == '' ||
+		$('#Nominee2_percentage').val() == ''
+	) {
+		alert('Please fill all details of nominee 2');
+		$('#chk_thirdnominee').prop('checked', false);
+	} else if (total2 == '100' || total2 == 100) {
+		$('#chk_thirdnominee').prop('checked', false);
+	} else {
+		if ($('#chk_thirdnominee').is(':checked')) {
+			$('#nominee3').show();
+		} else {
+			$('#nominee3').hide();
+		}
+	}
+}
+
+
 function previous_segment() {
 	sessionStorage.setItem('re-segment', 'yes');
 	sessionStorage.removeItem('re-document');
