@@ -1,58 +1,864 @@
-$("#signupsignature").change(function () {
-  const name = $("#signupsignature")[0].files[0].name;
-  const lastDot = name.lastIndexOf(".");
+<div id="nominee_div" class="w-auto mb-2" style="display: none">
+							<div class="container">
+								<div class="form-row">
+									<div class="col-sm-4 col-md-4 mt-21">
+										<label class="font-weight-bold" style="font-size: 21px">
+											First Nominee
+										</label>
+									</div>
+								</div>
+								<div class="" id="nominee1">
+									<div class="form-row">
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Name<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_name"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Email<span class="astric">*</span></label
+											>
+											<input
+												type="email"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_email"
+												class="form-control"
+												onkeyup="validateEmail(this.value,'1');"
+												onkeypress="return (event.charCode > 64 &&
+                    event.charCode < 91) || (event.charCode > 96 && event.charCode <
+                    123)|| (event.charCode > 47 && event.charCode < 59) || (event.charCode = 32)"
+												onkeydown="this.value = this.value.trimStart()"
+											/>
+											<span id="emailerror1"></span>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Mobile<span class="astric">*</span></label
+											>
+											<input
+												type="number"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_mobile"
+												class="form-control"
+												maxlength="10"
+												onKeyPress="if(this.value.length==10) return false;"
+												onkeyup="validateMobile(this.value,'1');"
+											/>
+											<span id="mobileerror1"></span>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>DOB<span class="astric">*</span></label
+											>
+											<input
+												type="date"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_DOB"
+												class="form-control"
+												onchange="getageondate()"
+												autocomplete="off"
+											/>
+											<span id="doberror1" class="error_msg"></span>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Relation<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_relation"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
 
-  const fileName = name.substring(0, lastDot);
-  const ext = name.substring(lastDot + 1);
-  if (
-    ext == "png" ||
-    ext == "PNG" ||
-    ext == "jpg" ||
-    ext == "JPG" ||
-    ext == "jpeg" ||
-    ext == "JPEG"
-  ) {
-    if ($("#signupsignature")[0].files[0].size > 5242880) {
-      alert("Try to upload file less than 5 MB!");
-      $("#sign_file").text("No file Selected");
-      $("#signupsignature").val("");
-    } else {
-    }
-  } else {
-    alert("Please upload only png, jpg file");
-    $("#sign_file").text("No file Selected");
-    $("#signupsignature").val("");
-  }
-});
-function uploadSignature() {
-  if ($("#signupsignature").val() == "") {
-    alert("Please Select File ");
-  } else {
-    $(".se-pre-con").show();
-    var formData = new FormData();
-    formData.append("signature", $("#signupsignature")[0].files[0]);
-    console.log(formData);
-    $.ajax({
-      crossOrigin: true,
-      type: "POST",
-      contentType: false,
-      processData: false,
-      url: "/UploadFilesByAdmin/" +
-        sessionStorage.getItem("mobileforkycadmin"),
-      data: formData,
-      success: function (data) {
-        $(".se-pre-con").hide();
-        console.log(data);
-        location.reload();
-      },
-      error: function (data) {
-        $(".se-pre-con").hide();
-        $("#notification").css("display", "block");
-        setInterval(function () {
-          $("#notification").css("display", "none");
-        }, 5000);
-      },
-      dataType: "json",
-    });
-  }
-}
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Address1<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_address1"
+												class="form-control"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Address2<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_address2"
+												class="form-control"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>City<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_city"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>State<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_state"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Pincode<span class="astric">*</span></label
+											>
+											<input
+												type="number"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_pincode"
+												class="form-control"
+												onKeyPress="if(this.value.length==6) return false;"
+												onkeyup="validatePincode(this.value,'1');"
+											/>
+											<span id="pincodeerror1"></span>
+										</div>
+
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Country<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_country"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Nominee1 Percentage<span class="astric">*</span></label
+											>
+											<input
+												type="number"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_percentage"
+												class="form-control"
+												onKeyPress="if(this.value.length==3) return false;"
+											/>
+										</div>
+									</div>
+
+									<div class="form-row" style="align-items: center">
+										<div class="form-group col-md-4">
+											<label for="inputEmail4"
+												>Select any ID PROOF<span class="astric">*</span></label
+											>
+											<select
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_Select_id"
+												class="form-control"
+											>
+												<option value="">---Select--</option>
+												<option value="PAN" selected="">PAN</option>
+												<option value="PHOTOGRAPH">PHOTOGRAPH</option>
+												<option value="AADHAR">AADHAR</option>
+												<option value="POI">POI</option>
+												<option value="DEMAT">DEMAT</option>
+											</select>
+										</div>
+
+										<div class="form-group col-md-3">
+											<label for="inputEmail4">POI Reference Number</label>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee1_PAN"
+												class="form-control text-uppercase"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+											<span id="panerror1" class="error_msg"></span>
+										</div>
+										<div class="form-group col-md-5">
+											<h6 style="margin: 0">
+												Identity Proof (only png, jpg)<span class="astric"
+													>*</span
+												>
+											</h6>
+											<span>(file should be less than 4MB)</span>
+											<div class="file-upload">
+												<button class="btn-upload" style="margin: 0">
+													<span class="text-browse">Browse..</span>
+													<span class="text-file-name" id="nominee1_file"
+														>No file selected</span
+													>
+												</button>
+												<input
+													type="file"
+													class="form-control d-none"
+													id="nominee1_proof"
+													accept="image/jpeg,image/jpg,image/png"
+												/>
+											</div>
+										</div>
+									</div>
+									<b id="error_msg_nominee1"></b>
+									<div class="form-row">
+										<div class="col-sm-4 col-md-4 mt-21">
+											<label class="font-weight-bold" style="font-size: 18px"
+												>Add Second Nominee</label
+											>
+										</div>
+										<div class="col-sm-8 col-md-8 mt-21">
+											<div class="row">
+												<div class="col-sm-4 col-md-4">
+													<label
+														class="check_container segment_check"
+														id="label_secondnominee"
+														>Add
+														<input
+															type="checkbox"
+															id="chk_secondnominee"
+															onclick="chk_nominee_2()"
+														/>
+														<span class="checkmark"></span>
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="" id="nominee2">
+									<div class="form-row">
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Name<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_name"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>email<span class="astric">*</span></label
+											>
+											<input
+												type="email"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_email"
+												class="form-control"
+												onkeyup="validateEmail(this.value,'2');"
+											/>
+											<span id="emailerror2"></span>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>mobile<span class="astric">*</span></label
+											>
+											<input
+												type="number"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_mobile"
+												class="form-control"
+												onKeyPress="if(this.value.length==10) return false;"
+												onkeyup="validateMobile(this.value,'2');"
+											/>
+											<span id="mobileerror2"></span>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>DOB<span class="astric">*</span></label
+											>
+											<input
+												type="date"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_DOB"
+												class="form-control"
+												onchange="getageondate2()"
+												autocomplete="off"
+											/>
+											<span id="doberror2" class="error_msg"></span>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Relation<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_relation"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Address1<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_address1"
+												class="form-control"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Address2<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_address2"
+												class="form-control"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>City<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_city"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+									</div>
+
+									<div class="form-row">
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>State<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_state"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Pincode<span class="astric">*</span></label
+											>
+											<input
+												type="number"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_pincode"
+												class="form-control"
+												onKeyPress="if(this.value.length==6) return false;"
+												onkeyup="validatePincode(this.value,'2');"
+											/>
+											<span id="pincodeerror2"></span>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Country<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_country"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Nominee2 Percentage<span class="astric">*</span></label
+											>
+											<input
+												type="number"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_percentage"
+												class="form-control"
+												onKeyPress="if(this.value.length==3) return false;"
+											/>
+										</div>
+									</div>
+									<div class="form-row" style="align-items: center">
+										<div class="form-group col-md-4">
+											<label for="inputEmail4"
+												>Select any ID PROOF<span class="astric">*</span></label
+											>
+											<select
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_Select_id"
+												class="form-control"
+											>
+												<option value="">---Select--</option>
+												<option value="PAN" selected="">PAN</option>
+												<option value="PHOTOGRAPH">PHOTOGRAPH</option>
+												<option value="AADHAR">AADHAR</option>
+												<option value="POI">POI</option>
+												<option value="DEMAT">DEMAT</option>
+											</select>
+										</div>
+										<div class="form-group col-md-4">
+											<label for="inputEmail4">POI Reference Number </label>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee2_PAN"
+												class="form-control text-uppercase"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+											<span id="panerror2" class="error_msg"></span>
+										</div>
+										<div class="form-group col-md-4">
+											<h6 style="margin: 0">
+												Identity Proof (only png, jpg)<span class="astric"
+													>*</span
+												>
+											</h6>
+											<span>(file should be less than 4MB)</span>
+											<div class="file-upload">
+												<button class="btn-upload" style="margin: 0">
+													<span class="text-browse">Browse..</span>
+													<span class="text-file-name" id="nominee2_file"
+														>No file selected</span
+													>
+												</button>
+												<input
+													type="file"
+													class="form-control d-none"
+													id="nominee2_proof"
+													accept="image/jpeg,image/jpg,image/png"
+												/>
+											</div>
+										</div>
+									</div>
+									<b id="error_msg_nominee2"></b>
+									<div class="form-row">
+										<div class="col-sm-4 col-md-4 mt-21">
+											<label class="font-weight-bold" style="font-size: 18px">
+												Add 3rd Nominee
+											</label>
+										</div>
+										<div class="col-sm-8 col-md-8 mt-21">
+											<div class="row">
+												<div class="col-sm-4 col-md-4">
+													<label
+														class="check_container segment_check"
+														id="label_thirdnominee"
+														>Add
+														<input
+															type="checkbox"
+															id="chk_thirdnominee"
+															onclick="chk_nominee_3()"
+														/>
+														<span class="checkmark"></span>
+													</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="" id="nominee3">
+									<div class="form-row">
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Name<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_name"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>email<span class="astric">*</span></label
+											>
+											<input
+												type="email"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_email"
+												class="form-control"
+												onkeyup="validateEmail(this.value,'3');"
+											/>
+											<span id="emailerror3"></span>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>mobile<span class="astric">*</span></label
+											>
+											<input
+												type="number"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_mobile"
+												class="form-control"
+												onKeyPress="if(this.value.length==10) return false;"
+												onkeyup="validateMobile(this.value,'3');"
+											/>
+											<span id="mobileerror3"></span>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>DOB<span class="astric">*</span></label
+											>
+											<input
+												type="date"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_DOB"
+												class="form-control"
+												onchange="getageondate3()"
+												autocomplete="off"
+											/>
+											<span id="doberror3" class="error_msg"></span>
+										</div>
+									</div>
+									<div class="form-row">
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Relation<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_relation"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Address1<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_address1"
+												class="form-control"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Address2<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_address2"
+												class="form-control"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>City<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_city"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+									</div>
+
+									<div class="form-row">
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>State<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_state"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Pincode<span class="astric">*</span></label
+											>
+											<input
+												type="number"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_pincode"
+												class="form-control"
+												onKeyPress="if(this.value.length==6) return false;"
+												onkeyup="validatePincode(this.value,'3');"
+											/>
+											<span id="pincodeerror3"></span>
+										</div>
+
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Country<span class="astric">*</span></label
+											>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_country"
+												class="form-control"
+												onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+										</div>
+										<div class="form-group col-md-3">
+											<label for="inputEmail4"
+												>Nominee3 Percentage<span class="astric">*</span></label
+											>
+											<input
+												type="number"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_percentage"
+												class="form-control"
+												onKeyPress="if(this.value.length==3) return false;"
+											/>
+										</div>
+									</div>
+									<div class="form-row" style="align-items: center">
+										<div class="form-group col-md-4">
+											<label for="inputEmail4"
+												>Select any ID PROOF<span class="astric">*</span></label
+											>
+											<select
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_Select_id"
+												class="form-control"
+											>
+												<option value="">---Select--</option>
+												<option value="PAN" selected="">PAN</option>
+												<option value="PHOTOGRAPH">PHOTOGRAPH</option>
+												<option value="AADHAR">AADHAR</option>
+												<option value="POI">POI</option>
+												<option value="DEMAT">DEMAT</option>
+											</select>
+										</div>
+										<div class="form-group col-md-4">
+											<label for="inputEmail4">PAN </label>
+											<input
+												type="text"
+												name=""
+												required=""
+												placeholder=""
+												id="Nominee3_PAN"
+												class="form-control text-uppercase"
+												onkeydown="this.value = this.value.trimStart()"
+												onkeyup="this.value = this.value.trimStart()"
+											/>
+											<span id="panerror3" class="error_msg"></span>
+										</div>
+										<div class="form-group col-md-4">
+											<h6 style="margin: 0">
+												Identity Proof (only png, jpg)<span class="astric"
+													>*</span
+												>
+											</h6>
+											<span>(file should be less than 4MB)</span>
+											<div class="file-upload">
+												<button class="btn-upload" style="margin: 0">
+													<span class="text-browse">Browse..</span>
+													<span class="text-file-name" id="nominee3_file"
+														>No file selected</span
+													>
+												</button>
+												<input
+													type="file"
+													class="form-control d-none"
+													id="nominee3_proof"
+													accept="image/jpeg,image/jpg,image/png"
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
+								<b id="error_msg_nominee3"></b>
+								<!-- <div class="p-12" align="center">
+                          <button class="btn continue" onclick="submit_nominee()" id="">Submit</button>
+                      </div> -->
+								<div align="right" class="doc_row mt-3">
+									<button
+										id="previous_segment"
+										class="continue"
+										onclick="previous_segment()"
+									>
+										Previous
+									</button>
+									<b class="mr-3 com_txt"
+										>Click here to complete your application<img
+											src="/static/joindre/images/arrow.png"
+											class="w-17"
+											alt="arrow"
+									/></b>
+									<button
+										id="submit_doc"
+										class="continue"
+										onclick="submit_nominee()"
+									>
+										NEXT
+									</button>
+								</div>
+							</div>
+						</div>
