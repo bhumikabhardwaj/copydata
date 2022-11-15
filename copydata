@@ -1,3 +1,22 @@
+if (
+				sessionStorage.getItem('re-nominee') == null ||
+				sessionStorage.getItem('re-nominee') == ''
+			) 
+			
+else {
+				console.log('Nominee');
+				$('#personal_div').css('display', 'none');
+				$('#bank_div').css('display', 'none');
+				$('#document_div').css('display', 'none');
+				$('#segment_div').css('display', 'none');
+				$('#nominee_div').css('display', 'block');
+				$('#other_menu').removeClass('focus_menu');
+				$('#personal_menu').removeClass('focus_menu');
+				$('#bank_menu').removeClass('focus_menu');
+				$('#document_menu').removeClass('focus_menu');
+				$('#nominee_menu').addClass('focus_menu');
+			}			
+
 
 function validatePan(pan, i) {
 	var pancard_pattern = /(^([a-zA-Z]{5})([0-9]{4})([a-zA-Z]{1})$)/;
