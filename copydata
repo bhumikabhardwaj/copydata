@@ -1,167 +1,33 @@
-$('#nominee1_proof').change(function () {
-	const name = $('#nominee1_proof')[0].files[0].name;
-	const lastDot = name.lastIndexOf('.');
-
-	const fileName = name.substring(0, lastDot);
-	const ext = name.substring(lastDot + 1);
-	if (
-		ext == 'png' ||
-		ext == 'PNG' ||
-		ext == 'jpg' ||
-		ext == 'JPG' ||
-		ext == 'jpeg' ||
-		ext == 'JPEG'
-	) {
-		if ($('#nominee1_proof')[0].files[0].size > 4194304) {
-			alert('Try to upload file less than 4MB!');
-			$('#nominee1_file').text('No file Selected');
-			$('#nominee1_proof').val('');
-		} else {
-			$('#nominee1_proof').attr('src', name);
-		}
-	} else {
-		alert('Please upload only png, jpg file');
-		$('#nominee1_file').text('No file Selected');
-		$('#nominee1_proof').val('');
-	}
-});
-
-$('#Nominee1_guar_proof').change(function () {
-	const name = $('#Nominee1_guar_proof')[0].files[0].name;
-	const lastDot = name.lastIndexOf('.');
-
-	const fileName = name.substring(0, lastDot);
-	const ext = name.substring(lastDot + 1);
-	if (
-		ext == 'png' ||
-		ext == 'PNG' ||
-		ext == 'jpg' ||
-		ext == 'JPG' ||
-		ext == 'jpeg' ||
-		ext == 'JPEG'
-	) {
-		if ($('#Nominee1_guar_proof')[0].files[0].size > 4194304) {
-			alert('Try to upload file less than 4MB!');
-			$('#Nominee1_guar_file').text('No file Selected');
-			$('#Nominee1_guar_proof').val('');
-		} else {
-			$('#Nominee1_guar_proof').attr('src', name);
-		}
-	} else {
-		alert('Please upload only png, jpg file');
-		$('#Nominee1_guar_file').text('No file Selected');
-		$('#Nominee1_guar_proof').val('');
-	}
-});
-
-$('#nominee2_proof').change(function () {
-	const name = $('#nominee2_proof')[0].files[0].name;
-	const lastDot = name.lastIndexOf('.');
-
-	const fileName = name.substring(0, lastDot);
-	const ext = name.substring(lastDot + 1);
-	if (
-		ext == 'png' ||
-		ext == 'PNG' ||
-		ext == 'jpg' ||
-		ext == 'JPG' ||
-		ext == 'jpeg' ||
-		ext == 'JPEG'
-	) {
-		if ($('#nominee2_proof')[0].files[0].size > 4194304) {
-			alert('Try to upload file less than 4MB!');
-			$('#nominee2_file').text('No file Selected');
-			$('#nominee2_proof').val('');
-		} else {
-			$('#nominee2_proof').attr('src', name);
-		}
-	} else {
-		alert('Please upload only png, jpg file');
-		$('#nominee2_file').text('No file Selected');
-		$('#nominee2_proof').val('');
-	}
-});
-
-$('#Nominee2_guar_proof').change(function () {
-	const name = $('#Nominee2_guar_proof')[0].files[0].name;
-	const lastDot = name.lastIndexOf('.');
-
-	const fileName = name.substring(0, lastDot);
-	const ext = name.substring(lastDot + 1);
-	if (
-		ext == 'png' ||
-		ext == 'PNG' ||
-		ext == 'jpg' ||
-		ext == 'JPG' ||
-		ext == 'jpeg' ||
-		ext == 'JPEG'
-	) {
-		if ($('#Nominee2_guar_proof')[0].files[0].size > 4194304) {
-			alert('Try to upload file less than 4MB!');
-			$('#Nominee2_guar_file').text('No file Selected');
-			$('#Nominee2_guar_proof').val('');
-		} else {
-			$('#Nominee2_guar_proof').attr('src', name);
-		}
-	} else {
-		alert('Please upload only png, jpg file');
-		$('#Nominee2_guar_file').text('No file Selected');
-		$('#Nominee2_guar_proof').val('');
-	}
-});
-
-$('#nominee3_proof').change(function () {
-	const name = $('#nominee3_proof')[0].files[0].name;
-	const lastDot = name.lastIndexOf('.');
-
-	const fileName = name.substring(0, lastDot);
-	const ext = name.substring(lastDot + 1);
-	if (
-		ext == 'png' ||
-		ext == 'PNG' ||
-		ext == 'jpg' ||
-		ext == 'JPG' ||
-		ext == 'jpeg' ||
-		ext == 'JPEG'
-	) {
-		if ($('#nominee3_proof')[0].files[0].size > 4194304) {
-			alert('Try to upload file less than 4MB!');
-			$('#nominee3_file').text('No file Selected');
-			$('#nominee3_proof').val('');
-		} else {
-			$('#nominee3_proof').attr('src', name);
-		}
-	} else {
-		alert('Please upload only png, jpg file');
-		$('#nominee3_file').text('No file Selected');
-		$('#nominee3_proof').val('');
-	}
-});
-
-$('#Nominee3_guar_proof').change(function () {
-	const name = $('#Nominee3_guar_proof')[0].files[0].name;
-	const lastDot = name.lastIndexOf('.');
-
-	const fileName = name.substring(0, lastDot);
-	const ext = name.substring(lastDot + 1);
-	if (
-		ext == 'png' ||
-		ext == 'PNG' ||
-		ext == 'jpg' ||
-		ext == 'JPG' ||
-		ext == 'jpeg' ||
-		ext == 'JPEG'
-	) {
-		if ($('#Nominee3_guar_proof')[0].files[0].size > 4194304) {
-			alert('Try to upload file less than 4MB!');
-			$('#Nominee3_guar_file').text('No file Selected');
-			$('#Nominee3_guar_proof').val('');
-		} else {
-			$('#Nominee3_guar_proof').attr('src', name);
-		}
-	} else {
-		alert('Please upload only png, jpg file');
-		$('#Nominee3_guar_file').text('No file Selected');
-		$('#Nominee3_guar_proof').val('');
-	}
-});
+function previous_nominee() {
+  if (sessionStorage.getItem("nominee_check") == "yes") {
+    sessionStorage.setItem("nominee_check", "yes");
+    sessionStorage.setItem("re-nominee", "yes");
+    sessionStorage.removeItem("re-document");
+    $("#personal_div").css("display", "none");
+    $("#bank_div").css("display", "none");
+    $("#segment_div").css("display", "none");
+    $("#document_div").css("display", "none");
+    $("#nominee_div").css("display", "block");
+    $("#bank_menu").removeClass("focus_menu");
+    $("#personal_menu").removeClass("focus_menu");
+    $("#other_menu").removeClass("focus_menu");
+    $("#document_menu").removeClass("focus_menu");
+    $("#nominee_menu").css("display", "block");
+    $("#nominee_menu").addClass("focus_menu");
+  } else {
+    sessionStorage.setItem("nominee_check", "no");
+    sessionStorage.removeItem("re-document");
+    sessionStorage.setItem("re-segment", "yes");
+    $("#personal_div").css("display", "none");
+    $("#bank_div").css("display", "none");
+    $("#segment_div").css("display", "block");
+    $("#document_div").css("display", "none");
+    $("#nominee_div").css("display", "none");
+    $("#bank_menu").removeClass("focus_menu");
+    $("#personal_menu").removeClass("focus_menu");
+    $("#other_menu").addClass("focus_menu");
+    $("#document_menu").removeClass("focus_menu");
+    $("#nominee_menu").removeClass("focus_menu");
+    // $("#nominee_menu").css("display", "none");
+  }
+}
