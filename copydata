@@ -1,33 +1,1008 @@
-function previous_nominee() {
-  if (sessionStorage.getItem("nominee_check") == "yes") {
-    sessionStorage.setItem("nominee_check", "yes");
-    sessionStorage.setItem("re-nominee", "yes");
-    sessionStorage.removeItem("re-document");
-    $("#personal_div").css("display", "none");
-    $("#bank_div").css("display", "none");
-    $("#segment_div").css("display", "none");
-    $("#document_div").css("display", "none");
-    $("#nominee_div").css("display", "block");
-    $("#bank_menu").removeClass("focus_menu");
-    $("#personal_menu").removeClass("focus_menu");
-    $("#other_menu").removeClass("focus_menu");
-    $("#document_menu").removeClass("focus_menu");
-    $("#nominee_menu").css("display", "block");
-    $("#nominee_menu").addClass("focus_menu");
-  } else {
-    sessionStorage.setItem("nominee_check", "no");
-    sessionStorage.removeItem("re-document");
-    sessionStorage.setItem("re-segment", "yes");
-    $("#personal_div").css("display", "none");
-    $("#bank_div").css("display", "none");
-    $("#segment_div").css("display", "block");
-    $("#document_div").css("display", "none");
-    $("#nominee_div").css("display", "none");
-    $("#bank_menu").removeClass("focus_menu");
-    $("#personal_menu").removeClass("focus_menu");
-    $("#other_menu").addClass("focus_menu");
-    $("#document_menu").removeClass("focus_menu");
-    $("#nominee_menu").removeClass("focus_menu");
-    // $("#nominee_menu").css("display", "none");
-  }
-}
+<a class="nav-link" href="#" onclick="nominee_details()">Nominee</a>
+
+	<div class="col-sm-4 basic_left" id="nominee_left">
+						<div class="row">
+							<div class="col-sm-9">
+								<div id="nominee1">
+									<div class="detail-head">
+										<h5>Nominee 1</h5>
+									</div>
+									<div class="details-item">
+										<label>Name</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											value=""
+											id="nominee1_name"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Email</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase "
+											
+											value=""
+											id="nominee1_email"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Mobile no</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase "
+										
+											value=""
+											id="nominee1_mob"
+										/>
+									</div>
+									<div class="details-item">
+										<label>DOB</label>
+										<input
+											type="date"
+											name=""
+											class="text_box text-uppercase"
+											value=""
+											id="nominee1_dob"
+											onchange="nominee1dob()"
+										/>
+									</div>
+									<div class="details-item">
+										<label>POI Reference Number</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											value=""
+											id="nominee1_pan"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Relation</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											value=""
+											id="nominee1_relation"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Address 1</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											disabled
+											value=""
+											id="nominee1_add1"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Address 2</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											disabled
+											value=""
+											id="nominee1_add2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>City</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											disabled
+											value=""
+											id="nominee1_city"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Pincode</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											disabled
+											value=""
+											id="nominee1_pin"
+										/>
+									</div>
+									<div class="details-item">
+										<label>State</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											disabled
+											value=""
+											id="nominee1_state"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Country</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											disabled
+											value=""
+											id="nominee1_country"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Nominee1 Percentage</label>
+										<input
+											type="number"
+											name=""
+											class="text_box"
+											value=""
+											id="Nominee1_percentage"
+											disabled
+										/>
+									</div>
+									<div class="details-item">
+										<label>Document Type</label>
+										<select
+											name=""
+											required=""
+											placeholder=""
+											id="Nominee1_Select"
+											class="text_box text-uppercase"
+										>
+											<option value="">---Select--</option>
+											<option value="PAN">PAN</option>
+											<option value="PHOTOGRAPH">PHOTOGRAPH</option>
+											<option value="AADHAR">AADHAR</option>
+											<option value="POI">POI</option>
+											<option value="DEMAT">DEMAT</option>
+										</select>
+									</div>
+								</div>
+								<div id="nominee1_guardian">
+									<div class="detail-head">
+										<h5>Nominee 1 Guardian</h5>
+									</div>
+									<div class="details-item">
+										<label>Guardian Name</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_name"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian DOB</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_dob"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Address</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_address"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian City</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_city"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian State</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_state"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Country</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_country"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Mobile</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_mobile"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Email</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_email"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Relation</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_relation"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Doc type</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_doc_type"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Pincode</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_pincode"
+										/>
+									</div>
+								</div>
+								<div id="nominee2">
+									<div class="detail-head">
+										<h5>Nominee 2</h5>
+									</div>
+									<div class="details-item">
+										<label>Name</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											value=""
+											id="nominee2_name"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Email</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+										
+											value=""
+											id="nominee2_email"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Mobile no</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+										
+											value=""
+											id="nominee2_mob"
+										/>
+									</div>
+									<div class="details-item">
+										<label>DOB</label>
+										<input
+											type="date"
+											name=""
+											class="text_box text-uppercase"
+											value=""
+											id="nominee2_dob"
+											onchange="nominee2dob()"
+										/>
+									</div>
+									<div class="details-item">
+										<label>POI Reference Number</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											value=""
+											id="nominee2_pan"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Relation</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											value=""
+											id="nominee2_relation"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Address 1</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											
+											value=""
+											id="nominee2_add1"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Address 2</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											
+											value=""
+											id="nominee2_add2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>City</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+										
+											value=""
+											id="nominee2_city"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Pincode</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase "
+										
+											value=""
+											id="nominee2_pin"
+										/>
+									</div>
+									<div class="details-item">
+										<label>State</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase "
+										
+											value=""
+											id="nominee2_state"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Country</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											
+											value=""
+											id="nominee2_country"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Nominee2 Percentage</label>
+										<input
+											type="number"
+											name=""
+											class="text_box"
+										
+											value=""
+											id="Nominee2_percentage"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Document Type</label>
+										<select
+											name=""
+											required=""
+											placeholder=""
+											id="Nominee2_Select"
+											class="text_box text-uppercase"
+										>
+											<option value="">---Select--</option>
+											<option value="PAN">PAN</option>
+											<option value="PHOTOGRAPH">PHOTOGRAPH</option>
+											<option value="AADHAR">AADHAR</option>
+											<option value="POI">POI</option>
+											<option value="DEMAT">DEMAT</option>
+										</select>
+									</div>
+								</div>
+								<div id="nominee2_guardian">
+									<div class="detail-head">
+										<h5>Nominee 2 Guardian</h5>
+									</div>
+									<div class="details-item">
+										<label>Guardian Name</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_name2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian DOB</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_dob2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Address</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_address2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian City</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_city2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian State</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_state2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Country</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_country2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Mobile</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_mobile2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Email</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_email2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Relation</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_relation2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Doc Type</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_doc_type2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Pincode</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_pincode2"
+										/>
+									</div>
+								</div>
+								<div id="nominee3">
+									<div class="detail-head">
+										<h5>Nominee 3</h5>
+									</div>
+									<div class="details-item">
+										<label>Name</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											value=""
+											id="nominee3_name"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Email</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											
+											value=""
+											id="nominee3_email"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Mobile no</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+										
+											value=""
+											id="nominee3_mob"
+										/>
+									</div>
+									<div class="details-item">
+										<label>DOB</label>
+										<input
+											type="date"
+											name=""
+											class="text_box text-uppercase"
+											value=""
+											id="nominee3_dob"
+											onchange="nominee3dob()"
+										/>
+									</div>
+									<div class="details-item">
+										<label>POI Reference Number</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											value=""
+											id="nominee3_pan"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Relation</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase"
+											value=""
+											id="nominee3_relation"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Address 1</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase "
+											
+											value=""
+											id="nominee3_add1"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Address 2</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase "
+											
+											value=""
+											id="nominee3_add2"
+										/>
+									</div>
+									<div class="details-item">
+										<label>City</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase "
+											
+											value=""
+											id="nominee3_city"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Pincode</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase "
+											
+											value=""
+											id="nominee3_pin"
+										/>
+									</div>
+									<div class="details-item">
+										<label>State</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase "
+											
+											value=""
+											id="nominee3_state"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Country</label>
+										<input
+											type="text"
+											name=""
+											class="text_box text-uppercase "
+											
+											value=""
+											id="nominee3_country"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Nominee3 Percentage</label>
+										<input
+											type="number"
+											name=""
+											class="text_box"
+											
+											value=""
+											id="Nominee3_percentage"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Document Type</label>
+										<select
+											name=""
+											required=""
+											placeholder=""
+											id="Nominee3_Select"
+											class="text_box text-uppercase"
+										>
+											<option value="">---Select--</option>
+											<option value="PAN">PAN</option>
+											<option value="PHOTOGRAPH">PHOTOGRAPH</option>
+											<option value="AADHAR">AADHAR</option>
+											<option value="POI">POI</option>
+											<option value="DEMAT">DEMAT</option>
+										</select>
+									</div>
+								</div>
+								<div id="nominee3_guardian">
+									<div class="detail-head">
+										<h5>Nominee 3 Guardian</h5>
+									</div>
+									<div class="details-item">
+										<label>Guardian Name3</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_name3"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian DOB</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_dob3"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Address</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_address3"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian City</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_city3"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian State</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_state3"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Country</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_country3"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Mobile</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_mobile3"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Email</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_email3"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Relation</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_relation3"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Doc Type</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_doc_type3"
+										/>
+									</div>
+									<div class="details-item">
+										<label>Guardian Pincode</label>
+										<input
+											type="text"
+											name=""
+											class="text_box"
+											value=""
+											id="Guardian_pincode3"
+										/>
+									</div>
+								</div>
+							</div>
+							<div class="col-sm-3" align="center"></div>
+						</div>
+					</div>
+          
+          
+          <a class="nav-link" href="#" onclick="nominee1_id()">Nominee1</a>
+							<a class="nav-link" href="#" onclick="nominee2_id()">Nominee2</a>
+							<a class="nav-link" href="#" onclick="nominee3_id()">Nominee3</a>
+              
+              
+          	<div class="row" id="right_nominee1_div">
+								<div class="row col-md-12">
+									<div class="col-sm-6">
+										<div class="details-item">
+											<label
+												>Document Type: <span id="nominee1_doctype"></span>
+											</label>
+										</div>
+										<button class="btn-next left" onclick="rotate('nominee1')">
+											Rotate
+										</button>
+									</div>
+									<div class="col-sm-4 pt-3 Nom1-doc">
+										<div class="form-group">
+											<h6>
+												Nominee 1 Identity Proof (only png, jpg) (file should be
+												less than 4 MB)
+											</h6>
+											<div class="file-upload">
+												<button class="btn-upload">
+													<span class="text-browse">Browse..</span>
+													<span class="text-file-name" id="nominee1_file"
+														>No file selected</span
+													>
+												</button>
+												<input
+													type="file"
+													class="form-control d-none"
+													id="nominee1_proof"
+													accept="image/jpeg,image/jpg,image/png,application/pdf"
+												/>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2 Nom1-doc" style="margin-top: 6.6%">
+										<button
+											class="btn btn-success"
+											id="upload_nominee1_proof"
+											onclick="upload_nominee1_proof()"
+										>
+											Upload
+										</button>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="row w-100 upload_img">
+										<img src="" id="nominee1_img" />
+									</div>
+									<div id="myModal" class="modal">
+										<img class="modal-content" id="img01" />
+									</div>
+								</div>
+							</div>
+
+							<div class="row" id="right_nominee2_div">
+								<div class="row col-md-12">
+									<div class="col-sm-6">
+										<div class="details-item">
+											<label
+												>Document Type: <span id="nominee2_doctype"></span
+											></label>
+										</div>
+										<button class="btn-next left" onclick="rotate('nominee2')">
+											Rotate
+										</button>
+									</div>
+									<div class="col-sm-4 pt-3 Nom2-doc">
+										<div class="form-group">
+											<h6>
+												Nominee 2 Identity Proof (only png, jpg) (file should be
+												less than 4 MB)
+											</h6>
+											<div class="file-upload">
+												<button class="btn-upload">
+													<span class="text-browse">Browse..</span>
+													<span class="text-file-name" id="nominee2_file"
+														>No file selected</span
+													>
+												</button>
+												<input
+													type="file"
+													class="form-control d-none"
+													id="nominee2_proof"
+													accept="image/jpeg,image/jpg,image/png,application/pdf"
+												/>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2 Nom2-doc" style="margin-top: 6.6%">
+										<button
+											class="btn btn-success"
+											id="upload_nominee2_proof"
+											onclick="upload_nominee2_proof()"
+										>
+											Upload
+										</button>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="row w-100 upload_img">
+										<img src="" id="nominee2_img" />
+									</div>
+									<div id="myModal2" class="modal">
+										<img class="modal-content" id="img02" />
+									</div>
+								</div>
+							</div>
+
+							<div class="row" id="right_nominee3_div">
+								<div class="row col-md-12">
+									<div class="col-sm-6">
+										<div class="details-item">
+											<label
+												>Document Type: <span id="nominee3_doctype"></span>
+											</label>
+										</div>
+										<button class="btn-next left" onclick="rotate('nominee3')">
+											Rotate
+										</button>
+									</div>
+									<div class="col-sm-4 pt-3 Nom3-doc">
+										<div class="form-group">
+											<h6>
+												Nominee 3 Identity Proof (only png, jpg) (file should be
+												less than 4 MB)
+											</h6>
+											<div class="file-upload">
+												<button class="btn-upload">
+													<span class="text-browse">Browse..</span>
+													<span class="text-file-name" id="nominee3_file"
+														>No file selected</span
+													>
+												</button>
+												<input
+													type="file"
+													class="form-control d-none"
+													id="nominee3_proof"
+													accept="image/jpeg,image/jpg,image/png,application/pdf"
+												/>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-2 Nom3-doc" style="margin-top: 6.6%">
+										<button
+											class="btn btn-success"
+											id="upload_nominee3_proof"
+											onclick="upload_nominee3_proof()"
+										>
+											Upload
+										</button>
+									</div>
+								</div>
+								<div class="col-sm-12">
+									<div class="row w-100 upload_img">
+										<img src="" id="nominee3_img" />
+									</div>
+									<div id="myModal3" class="modal">
+										<img class="modal-content" id="img03" />
+									</div>
+								</div>
+							</div>
