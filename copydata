@@ -1,12 +1,48 @@
-if (data['uploadnom1'] == '' || data['uploadnom1'] == null) {
-				$('#nominee1_img').css('display', 'none');
-			}
-			if (data['uploadnom2'] == '' || data['uploadnom2'] == null) {
-				$('#nominee2_img').css('display', 'none');
-			}
-			if (data['uploadnom3'] == '' || data['uploadnom3'] == null) {
-				$('#nominee3_img').css('display', 'none');
-			}
-			$('#nominee1_img').attr('src', data['uploadnom1']);
-			$('#nominee2_img').attr('src', data['uploadnom2']);
-			$('#nominee3_img').attr('src', data['uploadnom3']);
+function nominee_details() {
+	$('#other_left').css('display', 'none');
+	$('#dp_left').css('display', 'none');
+	$('#trading_left').css('display', 'none');
+	$('#add_left').css('display', 'none');
+	$('#bank_left').css('display', 'none');
+	$('#basic_left').css('display', 'none');
+	$('#nominee_left').css('display', 'block');
+}
+function nominee1_id() {
+	$('#right_pan_div').css('display', 'none');
+	$('#right_add_div').css('display', 'none');
+	$('#right_sign_div').css('display', 'none');
+	$('#right_cheque_div').css('display', 'none');
+	$('#right_cheque_div2').css('display', 'none');
+	$('#right_cheque_div3').css('display', 'none');
+	$('#right_client_div').css('display', 'none');
+	$('#right_fin_div').css('display', 'none');
+	$('#right_nominee1_div').css('display', 'flex');
+	$('#right_nominee2_div').css('display', 'none');
+	$('#right_nominee3_div').css('display', 'none');
+}
+function nominee2_id() {
+	$('#right_pan_div').css('display', 'none');
+	$('#right_add_div').css('display', 'none');
+	$('#right_sign_div').css('display', 'none');
+	$('#right_cheque_div').css('display', 'none');
+	$('#right_cheque_div2').css('display', 'none');
+	$('#right_cheque_div3').css('display', 'none');
+	$('#right_client_div').css('display', 'none');
+	$('#right_fin_div').css('display', 'none');
+	$('#right_nominee1_div').css('display', 'none');
+	$('#right_nominee2_div').css('display', 'flex');
+	$('#right_nominee3_div').css('display', 'none');
+}
+function nominee3_id() {
+	$('#right_pan_div').css('display', 'none');
+	$('#right_add_div').css('display', 'none');
+	$('#right_sign_div').css('display', 'none');
+	$('#right_cheque_div').css('display', 'none');
+	$('#right_cheque_div2').css('display', 'none');
+	$('#right_cheque_div3').css('display', 'none');
+	$('#right_client_div').css('display', 'none');
+	$('#right_fin_div').css('display', 'none');
+	$('#right_nominee1_div').css('display', 'none');
+	$('#right_nominee2_div').css('display', 'none');
+	$('#right_nominee3_div').css('display', 'flex');
+}
