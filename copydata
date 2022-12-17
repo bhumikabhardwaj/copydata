@@ -1,3 +1,66 @@
-$('#right_nominee1_div').css('display', 'none');
-	$('#right_nominee2_div').css('display', 'none');
-	$('#right_nominee3_div').css('display', 'none');
+var segment_val = sessionStorage.getItem('segment_value');
+	console.log(segment_val);
+	
+	
+sessionStorage.setItem("segment_update", segments);
+			if (segment_val == '' || segment_val == 'null')
+			{
+				var old_segment = sessionStorage.getItem('old_segment').split('');
+				var segment_val = sessionStorage.getItem("segment_update").split(",");
+				if (old_segment[2] == "N" && segment_val[2] == "true")
+				{
+					sessionStorage.setItem("segmentverify", "yes");
+				} else if (old_segment[3] == "N" && segment_val[3] == "true")
+				{
+					sessionStorage.setItem("segmentverify", "yes");
+				} else if (old_segment[5] == "N" && segment_val[5] == "true")
+				{
+					sessionStorage.setItem("segmentverify", "yes");
+				} else if (old_segment[6] == "N" && segment_val[6] == "true")
+				{
+					sessionStorage.setItem("segmentverify", "yes");
+				} else if (old_segment[7] == "N" && segment_val[7] == "true")
+				{
+					sessionStorage.setItem("segmentverify", "yes");
+				} else if (old_segment[8] == "N" && segment_val[8] == "true")
+				{
+					sessionStorage.setItem("segmentverify", "yes");
+				} else
+				{
+					sessionStorage.removeItem("segmentverify");
+				}
+			} else
+			{
+				var segment_val = sessionStorage.getItem('segment_value').split(',');
+				var old_segment = sessionStorage.getItem('old_segment').split('');
+				var sel_segment = sessionStorage.getItem("segment_update").split(",");
+				if (old_segment[2] == "N" && segment_val[2] == "false" && sel_segment[2] == "true")
+				{
+					sessionStorage.setItem("segmentverify", "yes");
+				} else if (old_segment[3] == "N" && segment_val[3] == "false" && sel_segment[3] == "true")
+				{
+					sessionStorage.setItem("segmentverify", "yes");
+				} else if (old_segment[5] == "N" && segment_val[5] == "false" && sel_segment[5] == "true")
+				{
+					sessionStorage.setItem("segmentverify", "yes");
+				} else if (old_segment[6] == "N" && segment_val[6] == "false" && sel_segment[6] == "true")
+				{
+					sessionStorage.setItem("segmentverify", "yes");
+				} else if (old_segment[7] == "N" && segment_val[7] == "false" && sel_segment[7] == "true")
+				{
+					sessionStorage.setItem("segmentverify", "yes");
+				} else if (old_segment[8] == "N" && segment_val[8] == "false" && sel_segment[8] == "true")
+				{
+					sessionStorage.setItem("segmentverify", "yes");
+				} else
+				{
+					if (sessionStorage.getItem('isfinancial') == 'yes')
+					{
+						sessionStorage.setItem('segmentverify', 'yes');
+					} else
+					{
+						sessionStorage.removeItem('segmentverify');
+						$('#upload_financial').css('display', 'flex');
+					}
+				}
+			}
