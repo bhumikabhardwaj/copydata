@@ -1,66 +1,32 @@
-var segment_val = sessionStorage.getItem('segment_value');
-	console.log(segment_val);
-	
-	
-sessionStorage.setItem("segment_update", segments);
-			if (segment_val == '' || segment_val == 'null')
-			{
-				var old_segment = sessionStorage.getItem('old_segment').split('');
-				var segment_val = sessionStorage.getItem("segment_update").split(",");
-				if (old_segment[2] == "N" && segment_val[2] == "true")
-				{
-					sessionStorage.setItem("segmentverify", "yes");
-				} else if (old_segment[3] == "N" && segment_val[3] == "true")
-				{
-					sessionStorage.setItem("segmentverify", "yes");
-				} else if (old_segment[5] == "N" && segment_val[5] == "true")
-				{
-					sessionStorage.setItem("segmentverify", "yes");
-				} else if (old_segment[6] == "N" && segment_val[6] == "true")
-				{
-					sessionStorage.setItem("segmentverify", "yes");
-				} else if (old_segment[7] == "N" && segment_val[7] == "true")
-				{
-					sessionStorage.setItem("segmentverify", "yes");
-				} else if (old_segment[8] == "N" && segment_val[8] == "true")
-				{
-					sessionStorage.setItem("segmentverify", "yes");
-				} else
-				{
-					sessionStorage.removeItem("segmentverify");
-				}
-			} else
-			{
-				var segment_val = sessionStorage.getItem('segment_value').split(',');
-				var old_segment = sessionStorage.getItem('old_segment').split('');
-				var sel_segment = sessionStorage.getItem("segment_update").split(",");
-				if (old_segment[2] == "N" && segment_val[2] == "false" && sel_segment[2] == "true")
-				{
-					sessionStorage.setItem("segmentverify", "yes");
-				} else if (old_segment[3] == "N" && segment_val[3] == "false" && sel_segment[3] == "true")
-				{
-					sessionStorage.setItem("segmentverify", "yes");
-				} else if (old_segment[5] == "N" && segment_val[5] == "false" && sel_segment[5] == "true")
-				{
-					sessionStorage.setItem("segmentverify", "yes");
-				} else if (old_segment[6] == "N" && segment_val[6] == "false" && sel_segment[6] == "true")
-				{
-					sessionStorage.setItem("segmentverify", "yes");
-				} else if (old_segment[7] == "N" && segment_val[7] == "false" && sel_segment[7] == "true")
-				{
-					sessionStorage.setItem("segmentverify", "yes");
-				} else if (old_segment[8] == "N" && segment_val[8] == "false" && sel_segment[8] == "true")
-				{
-					sessionStorage.setItem("segmentverify", "yes");
-				} else
-				{
-					if (sessionStorage.getItem('isfinancial') == 'yes')
-					{
-						sessionStorage.setItem('segmentverify', 'yes');
-					} else
-					{
-						sessionStorage.removeItem('segmentverify');
-						$('#upload_financial').css('display', 'flex');
-					}
-				}
-			}
+<p class="p-0">Select Dependency</p>
+<select name="mobile_dependency" id="mobile_dependency" class="form-control w-50">
+					<option value="Self">Self</option>
+					<option value="Spouse">Spouse</option>
+					<option value="child Dependent ">child Dependent</option>
+					<option value="parents Dependent">parents Dependent</option>
+				</select>
+<div id="phone_dependent" style="">
+					<p class="p-0">Dependent Name</p>
+					<input type="text" name="mobile_dependent_name" id="mobile_dependent_name" class="form-control w-50" onkeypress="return (event.charCode > 64 &amp;&amp; event.charCode < 91) || (event.charCode > 96 &amp;&amp; event.charCode < 123)" fdprocessedid="krunu">
+				</div>
+				
+				
+mobile_dependency: $('#mobile_dependency').val(),
+			mobile_dependency_name: $('#mobile_dependent_name').val(),
+			
+			
+edit_newemail
+<p class="p-0">Select Dependency</p>
+<select name="email_dependency" id="email_dependency" class="form-control w-50">
+					<option value="Self">Self</option>
+					<option value="Spouse">Spouse</option>
+					<option value="child Dependent ">child Dependent</option>
+					<option value="parents Dependent">parents Dependent</option>
+				</select>
+<div id="email_dependent" style="display: none">
+					<p class="p-0">Dependent Name</p>
+					<input type="text" name="email_dependent_name" id="email_dependent_name" class="form-control w-50" onkeypress="return (event.charCode > 64 &amp;&amp; event.charCode < 91) || (event.charCode > 96 &amp;&amp; event.charCode < 123)">
+				</div>
+				
+email_dependency: $('#email_dependency').val(),
+				email_dependency_name: $('#email_dependent_name').val(),
