@@ -1,3 +1,24 @@
+$('#email_dependency').change(function () {
+	if ($('#email_dependency').val() == 'Self') {
+		$('#email_dependent').hide();
+		$('#email_dependent_name').val('');
+	} else {
+		$('#email_dependent').show();
+	}
+});
+
+$('#mobile_dependency').change(function () {
+	if ($('#mobile_dependency').val() == 'Self') {
+		$('#phone_dependent').hide();
+		$('#mobile_dependent_name').val('');
+	} else {
+		$('#phone_dependent').show();
+	}
+});
+
+
+
+
 <p class="p-0">Select Dependency</p>
 <select name="mobile_dependency" id="mobile_dependency" class="form-control w-50">
 					<option value="Self">Self</option>
