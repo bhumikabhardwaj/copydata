@@ -1,53 +1,59 @@
-$('#email_dependency').change(function () {
-	if ($('#email_dependency').val() == 'Self') {
-		$('#email_dependent').hide();
-		$('#email_dependent_name').val('');
-	} else {
-		$('#email_dependent').show();
-	}
-});
+function bse_complete(a) {
+	$('.overlay-bg').show();
+	var json_data = '';
+	//console.log(json_data);
+	$.ajax({
+		crossOrigin: true,
+		type: 'POST',
+		contentType: 'application/json; charset=utf-8',
+		url: '/frr/bseUCCModify/' + a,
+		data: JSON.stringify(json_data),
+		success: function (data) {
+			console.log(data);
+			sessionStorage.setItem('reload', data['success']);
+			$('.overlay-bg').hide();
+			$('#id09').css('display', 'block');
+			$('#cdslsuccess_msg').replaceWith(
+				'<p id="cdslsuccess_msg">' + data['msg'] + '</p>',
+			);
+		},
+		error: function (data) {
+			$('.overlay-bg').hide();
+			$('#notification').css('display', 'block');
+			setInterval(function () {
+				$('#notification').css('display', 'none');
+			}, 5000);
+		},
+		dataType: 'json',
+	});
+}
 
-$('#mobile_dependency').change(function () {
-	if ($('#mobile_dependency').val() == 'Self') {
-		$('#phone_dependent').hide();
-		$('#mobile_dependent_name').val('');
-	} else {
-		$('#phone_dependent').show();
-	}
-});
-
-
-
-
-<p class="p-0">Select Dependency</p>
-<select name="mobile_dependency" id="mobile_dependency" class="form-control w-50">
-					<option value="Self">Self</option>
-					<option value="Spouse">Spouse</option>
-					<option value="child Dependent ">child Dependent</option>
-					<option value="parents Dependent">parents Dependent</option>
-				</select>
-<div id="phone_dependent" style="">
-					<p class="p-0">Dependent Name</p>
-					<input type="text" name="mobile_dependent_name" id="mobile_dependent_name" class="form-control w-50" onkeypress="return (event.charCode > 64 &amp;&amp; event.charCode < 91) || (event.charCode > 96 &amp;&amp; event.charCode < 123)" fdprocessedid="krunu">
-				</div>
-				
-				
-mobile_dependency: $('#mobile_dependency').val(),
-			mobile_dependency_name: $('#mobile_dependent_name').val(),
-			
-			
-edit_newemail
-<p class="p-0">Select Dependency</p>
-<select name="email_dependency" id="email_dependency" class="form-control w-50">
-					<option value="Self">Self</option>
-					<option value="Spouse">Spouse</option>
-					<option value="child Dependent ">child Dependent</option>
-					<option value="parents Dependent">parents Dependent</option>
-				</select>
-<div id="email_dependent" style="display: none">
-					<p class="p-0">Dependent Name</p>
-					<input type="text" name="email_dependent_name" id="email_dependent_name" class="form-control w-50" onkeypress="return (event.charCode > 64 &amp;&amp; event.charCode < 91) || (event.charCode > 96 &amp;&amp; event.charCode < 123)">
-				</div>
-				
-email_dependency: $('#email_dependency').val(),
-				email_dependency_name: $('#email_dependent_name').val(),
+function nse_complete(a) {
+	$('.overlay-bg').show();
+	var json_data = '';
+	//console.log(json_data);
+	$.ajax({
+		crossOrigin: true,
+		type: 'POST',
+		contentType: 'application/json; charset=utf-8',
+		url: '/frr/nseUCCModify/' + a,
+		data: JSON.stringify(json_data),
+		success: function (data) {
+			console.log(data);
+			sessionStorage.setItem('reload', data['success']);
+			$('.overlay-bg').hide();
+			$('#id09').css('display', 'block');
+			$('#cdslsuccess_msg').replaceWith(
+				'<p id="cdslsuccess_msg">' + data['msg'] + '</p>',
+			);
+		},
+		error: function (data) {
+			$('.overlay-bg').hide();
+			$('#notification').css('display', 'block');
+			setInterval(function () {
+				$('#notification').css('display', 'none');
+			}, 5000);
+		},
+		dataType: 'json',
+	});
+}
