@@ -1,2 +1,9 @@
 http://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js
 http://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css
+
+
+<!-- Include the DataTables library from jsDelivr CDN -->
+<script src="https://cdn.jsdelivr.net/npm/datatables.net@latest/js/jquery.dataTables.min.js"></script>
+
+<!-- Include the DataTables FixedHeader extension from jsDelivr CDN -->
+<script src="https://cdn.jsdelivr.net/npm/datatables.net-fixedheader@latest/js/dataTables.fixedHeader.min.js"></script>
