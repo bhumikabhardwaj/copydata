@@ -1,3 +1,13 @@
-new $.fn.dataTable.FixedHeader( table, {
-    // options
-} );
+$('.display').DataTable({
+				responsive: true,
+				order: [[15, 'desc']], //or asc
+				columnDefs: [{ targets: 15, type: 'date-eu' }],
+			});
+			/* =========================================================================================== */
+			/* ============================ BOOTSTRAP 3/4 EVENT ========================================== */
+			$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+				$($.fn.dataTable.tables(true))
+					.DataTable()
+					.columns.adjust()
+					.responsive.recalc();
+			});
