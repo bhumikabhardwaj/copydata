@@ -1,28 +1,4 @@
-<style>
-    .footer_meon{
-      float: right;
-      text-align: right;
-      position: fixed;
-      bottom: 0;
-      z-index: 999;
-      width: 99%;
-      background: white;
-    }
-    .footer_meon a
-    {
-      padding-right: .5em;
-    }
-    .footer_meon a img
-    {
-      width: auto;
-    }
-    @media only screen and (max-width: 700px) {
-      .footer_meon{
-        float: none;
-        text-align: -webkit-center;
-      }
-    }
-  </style>
-  <footer class="footer_meon">
-      <a href="https://meon.co.in/" target="_blank"><img src="https://meon.co.in/static/meon.svg"></a>
-  </footer>
+$('.table-container').on('scroll', function() {
+      const scrollLeft = $(this).scrollLeft();
+      $('.fixed-header').css('left', -scrollLeft);
+    });
