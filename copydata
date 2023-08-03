@@ -1,13 +1,2 @@
-$('.display').DataTable({
-				responsive: true,
-				order: [[15, 'desc']], //or asc
-				columnDefs: [{ targets: 15, type: 'date-eu' }],
-			});
-			/* =========================================================================================== */
-			/* ============================ BOOTSTRAP 3/4 EVENT ========================================== */
-			$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-				$($.fn.dataTable.tables(true))
-					.DataTable()
-					.columns.adjust()
-					.responsive.recalc();
-			});
+http://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js
+http://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css
